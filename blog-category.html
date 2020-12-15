@@ -77,17 +77,22 @@
         }
     </script>
     <!-- Vendor Styles including: Font Icons, Plugins, etc.-->
-    <!--<link rel="stylesheet" hreflang="vi" media="screen" href="vendor/simplebar/dist/simplebar.min.css"/>-->
-    <!-- <link rel="stylesheet" hreflang="vi" media="screen" href="vendor/tiny-slider/dist/tiny-slider.css" /> -->
+    <link rel="stylesheet" rel="preload" hreflang="vi" href="vendor/simplebar/dist/simplebar.min.css" />
+    <link rel="stylesheet" rel="preload" hreflang="vi" href="vendor/tiny-slider/dist/tiny-slider.css" />
+    <!-- <link rel="stylesheet" hreflang="vi" href="vendor/lightgallery.js/dist/css/lightgallery.min.css" /> -->
     <!-- Main Theme Styles + Bootstrap-->
     <link rel="stylesheet" rel="preload" hreflang="vi" href="css/theme.min.css">
     <link rel="stylesheet" rel="preload" hreflang="vi" href="css/custom.css">
-
 </head>
 <!-- Body-->
 
 <body class="toolbar-enabled">
-    <section class="modal fade" id="signin-modal" tabindex="-1" role="dialog">
+    <!-- Google Tag Manager (noscript)-->
+    <!-- <noscript> -->
+    <!-- <iframe src="http://www.googletagmanager.com/ns.html?id=GTM-WKV3GT5" height="0" width="0" style="display: none; visibility: hidden;"></iframe> -->
+    <!-- </noscript> -->
+    <!-- Sign in / sign up modal-->
+    <div class="modal fade" id="signin-modal" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -96,7 +101,7 @@
                         <li class="nav-item"><a class="nav-link" href="#signup-tab" data-toggle="tab" role="tab" aria-selected="false"><i class="czi-user mr-2 mt-n1"></i>Sign up</a></li>
                     </ul>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span
-                     aria-hidden="true">&times;</span></button>
+              aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body tab-content py-4">
                     <form class="needs-validation tab-pane fade show active" autocomplete="off" novalidate id="signin-tab">
@@ -110,17 +115,16 @@
                             <div class="password-toggle">
                                 <input class="form-control" type="password" id="si-password" required>
                                 <label class="password-toggle-btn">
-                           <input class="custom-control-input" type="checkbox"><i
-                              class="czi-eye password-toggle-indicator"></i><span class="sr-only">Show password</span>
-                        </label>
+                  <input class="custom-control-input" type="checkbox"><i
+                    class="czi-eye password-toggle-indicator"></i><span class="sr-only">Show password</span>
+                </label>
                             </div>
                         </div>
                         <div class="form-group d-flex flex-wrap justify-content-between">
                             <div class="custom-control custom-checkbox mb-2">
                                 <input class="custom-control-input" type="checkbox" id="si-remember">
                                 <label class="custom-control-label" for="si-remember">Remember me</label>
-                            </div>
-                            <a class="font-size-sm" href="#">Forgot password?</a>
+                            </div><a class="font-size-sm" href="#">Forgot password?</a>
                         </div>
                         <button class="btn btn-primary btn-block btn-shadow" type="submit">Sign in</button>
                     </form>
@@ -140,9 +144,9 @@
                             <div class="password-toggle">
                                 <input class="form-control" type="password" id="su-password" required>
                                 <label class="password-toggle-btn">
-                           <input class="custom-control-input" type="checkbox"><i
-                              class="czi-eye password-toggle-indicator"></i><span class="sr-only">Show password</span>
-                        </label>
+                  <input class="custom-control-input" type="checkbox"><i
+                    class="czi-eye password-toggle-indicator"></i><span class="sr-only">Show password</span>
+                </label>
                             </div>
                         </div>
                         <div class="form-group">
@@ -150,9 +154,9 @@
                             <div class="password-toggle">
                                 <input class="form-control" type="password" id="su-password-confirm" required>
                                 <label class="password-toggle-btn">
-                           <input class="custom-control-input" type="checkbox"><i
-                              class="czi-eye password-toggle-indicator"></i><span class="sr-only">Show password</span>
-                        </label>
+                  <input class="custom-control-input" type="checkbox"><i
+                    class="czi-eye password-toggle-indicator"></i><span class="sr-only">Show password</span>
+                </label>
                             </div>
                         </div>
                         <button class="btn btn-primary btn-block btn-shadow" type="submit">Sign up</button>
@@ -160,7 +164,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </div>
     <!-- Navbar-->
     <!-- Navbar 3 Level (Light)-->
     <header class="box-shadow-sm">
@@ -171,17 +175,17 @@
                     <a class="topbar-link dropdown-toggle" href="#" data-toggle="dropdown">Truy cập nhanh</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="tel:00331697720"><i class="czi-support text-muted mr-2"></i>(00) 33
-                        169
-                        7720</a>
+                      169
+                      7720</a>
                         </li>
                         <li><a class="dropdown-item" href="order-tracking.html"><i
-                           class="czi-location text-muted mr-2"></i>Thủ
-                        thuật hay</a>
+                         class="czi-location text-muted mr-2"></i>Thủ
+                      thuật hay</a>
                         </li>
                     </ul>
                 </div>
                 <div class="topbar-text text-nowrap d-none d-md-inline-block"><i class="czi-support"></i><span class="text-muted mr-1">Support</span><a class="topbar-link" href="tel:00331697720">(00) 33 169
-                  7720</a>
+                7720</a>
                 </div>
                 <div class="cz-carousel cz-controls-static d-none d-md-block">
                     <div class="cz-carousel-inner" data-carousel-options="{&quot;mode&quot;: &quot;gallery&quot;, &quot;nav&quot;: false}">
@@ -192,7 +196,7 @@
                 </div>
                 <div class="ml-3 text-nowrap">
                     <a class="topbar-link mr-4 d-none d-md-inline-block" href="#"><i class="czi-location"></i>Thủ thuật
-                  hay</a>
+                hay</a>
                     <div class="topbar-text dropdown disable-autohide">
                         <a class="topbar-link dropdown-toggle" href="#" data-toggle="dropdown"><img class="mr-2" width="20" src="img/flags/en.png" alt="English" />EN</a>
                         <ul class="dropdown-menu dropdown-menu-right">
@@ -213,7 +217,7 @@
                     <div class="input-group-overlay d-none d-lg-flex mx-4">
                         <input class="form-control appended-form-control" type="text" placeholder="Tìm kiếm...">
                         <div class="input-group-append-overlay"><span class="input-group-text"><i
-                           class="czi-search"></i></span>
+                         class="czi-search"></i></span>
                         </div>
                     </div>
                     <div class="navbar-toolbar d-flex flex-shrink-0 align-items-center">
@@ -239,7 +243,7 @@
                         <!-- Search-->
                         <div class="input-group-overlay d-lg-none my-3">
                             <div class="input-group-prepend-overlay"><span class="input-group-text"><i
-                              class="czi-search"></i></span>
+                            class="czi-search"></i></span>
                             </div>
                             <input class="form-control prepended-form-control" type="text" placeholder="Tìm kiếm...">
                         </div>
@@ -247,7 +251,7 @@
                         <ul class="navbar-nav mega-nav pr-lg-2 mr-lg-2">
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle pl-0" href="#" data-toggle="dropdown"><i
-                              class="czi-view-grid mr-2"></i>Browse Categories</a>
+                            class="czi-view-grid mr-2"></i>Browse Categories</a>
                                 <ul class="dropdown-menu pt-0">
                                     <!--item-->
                                     <li class="dropdown">
@@ -255,7 +259,7 @@
                                             <i class="czi-book text-heading mr-2"></i> Lớp 1
                                         </a>
                                         <!-- <a class="dropdown-item dropdown-toggle" href="#" data-toggle="dropdown">Navbar
-                                    Variants</a> -->
+                                  Variants</a> -->
                                         <div class="dropdown-menu pt-0">
                                             <div class="d-flex flex-wrap flex-md-nowrap">
                                                 <div class="mega-dropdown-column pt-4 px-3">
@@ -264,10 +268,10 @@
                                                         <h6 class="font-size-base mb-2">Clothing</h6>
                                                         <ul class="widget-list">
                                                             <li class="widget-list-item"><a class="widget-list-link" href="#">Women's
-                                                   clothing</a>
+                                                 clothing</a>
                                                             </li>
                                                             <li class="widget-list-item"><a class="widget-list-link" href="#">Men's
-                                                   clothing</a></li>
+                                                 clothing</a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -277,9 +281,9 @@
                                                         <h6 class="font-size-base mb-2">Shoes</h6>
                                                         <ul class="widget-list">
                                                             <li class="widget-list-item"><a class="widget-list-link" href="#">Women's
-                                                   shoes</a></li>
+                                                 shoes</a></li>
                                                             <li class="widget-list-item"><a class="widget-list-link" href="#">Men's
-                                                   shoes</a></li>
+                                                 shoes</a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -289,10 +293,10 @@
                                                         <h6 class="font-size-base mb-2">Gadgets</h6>
                                                         <ul class="widget-list">
                                                             <li class="widget-list-item"><a class="widget-list-link" href="#">Smartphones &amp;
-                                                   Tablets</a>
+                                                 Tablets</a>
                                                             </li>
                                                             <li class="widget-list-item"><a class="widget-list-link" href="#">Wearable
-                                                   gadgets</a>
+                                                 gadgets</a>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -305,9 +309,9 @@
                                                         <h6 class="font-size-base mb-2">Furniture &amp; Decor</h6>
                                                         <ul class="widget-list">
                                                             <li class="widget-list-item"><a class="widget-list-link" href="#">Home
-                                                   furniture</a></li>
+                                                 furniture</a></li>
                                                             <li class="widget-list-item"><a class="widget-list-link" href="#">Office
-                                                   furniture</a>
+                                                 furniture</a>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -329,9 +333,9 @@
                                                         <h6 class="font-size-base mb-2">Entertainment</h6>
                                                         <ul class="widget-list">
                                                             <li class="widget-list-item"><a class="widget-list-link" href="#">Kid's
-                                                   toys</a></li>
+                                                 toys</a></li>
                                                             <li class="widget-list-item"><a class="widget-list-link" href="#">Video
-                                                   games</a></li>
+                                                 games</a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -344,7 +348,7 @@
                                             <i class="czi-book text-heading mr-2"></i> Lớp 2
                                         </a>
                                         <!-- <a class="dropdown-item dropdown-toggle" href="#" data-toggle="dropdown">Navbar
-                                    Variants</a> -->
+                                  Variants</a> -->
                                         <div class="dropdown-menu pt-0">
                                             <div class="d-flex flex-wrap flex-md-nowrap px-2">
                                                 <div class="mega-dropdown-column py-4 px-3">
@@ -404,7 +408,7 @@
                                                             <li class="widget-list-item pb-1"><a class="widget-list-link" href="food-delivery-single.html">Single Item (Restaurant)</a></li>
                                                             <li class="widget-list-item pb-1"><a class="widget-list-link" href="food-delivery-cart.html">Cart (Your Order)</a></li>
                                                             <li class="widget-list-item pb-1"><a class="widget-list-link" href="food-delivery-checkout.html">Checkout (Address &amp;
-                                                   Payment)</a></li>
+                                                 Payment)</a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -417,7 +421,7 @@
                                             <i class="czi-book text-heading mr-2"></i> Lớp 3
                                         </a>
                                         <!-- <a class="dropdown-item dropdown-toggle" href="#" data-toggle="dropdown">Navbar
-                                    Variants</a> -->
+                                  Variants</a> -->
                                         <div class="dropdown-menu pt-0">
                                             <div class="d-flex flex-wrap flex-md-nowrap px-2">
                                                 <div class="mega-dropdown-column py-4 px-3">
@@ -477,7 +481,7 @@
                                                             <li class="widget-list-item pb-1"><a class="widget-list-link" href="food-delivery-single.html">Single Item (Restaurant)</a></li>
                                                             <li class="widget-list-item pb-1"><a class="widget-list-link" href="food-delivery-cart.html">Cart (Your Order)</a></li>
                                                             <li class="widget-list-item pb-1"><a class="widget-list-link" href="food-delivery-checkout.html">Checkout (Address &amp;
-                                                   Payment)</a></li>
+                                                 Payment)</a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -490,7 +494,7 @@
                                             <i class="czi-book text-heading mr-2"></i> Lớp 4
                                         </a>
                                         <!-- <a class="dropdown-item dropdown-toggle" href="#" data-toggle="dropdown">Navbar
-                                    Variants</a> -->
+                                  Variants</a> -->
                                         <div class="dropdown-menu pt-0">
                                             <div class="d-flex flex-wrap flex-md-nowrap px-2">
                                                 <div class="mega-dropdown-column py-4 px-3">
@@ -550,7 +554,7 @@
                                                             <li class="widget-list-item pb-1"><a class="widget-list-link" href="food-delivery-single.html">Single Item (Restaurant)</a></li>
                                                             <li class="widget-list-item pb-1"><a class="widget-list-link" href="food-delivery-cart.html">Cart (Your Order)</a></li>
                                                             <li class="widget-list-item pb-1"><a class="widget-list-link" href="food-delivery-checkout.html">Checkout (Address &amp;
-                                                   Payment)</a></li>
+                                                 Payment)</a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -563,7 +567,7 @@
                                             <i class="czi-book text-heading mr-2"></i> Lớp 5
                                         </a>
                                         <!-- <a class="dropdown-item dropdown-toggle" href="#" data-toggle="dropdown">Navbar
-                                    Variants</a> -->
+                                  Variants</a> -->
                                         <div class="dropdown-menu pt-0">
                                             <div class="d-flex flex-wrap flex-md-nowrap px-2">
                                                 <div class="mega-dropdown-column py-4 px-3">
@@ -623,7 +627,7 @@
                                                             <li class="widget-list-item pb-1"><a class="widget-list-link" href="food-delivery-single.html">Single Item (Restaurant)</a></li>
                                                             <li class="widget-list-item pb-1"><a class="widget-list-link" href="food-delivery-cart.html">Cart (Your Order)</a></li>
                                                             <li class="widget-list-item pb-1"><a class="widget-list-link" href="food-delivery-checkout.html">Checkout (Address &amp;
-                                                   Payment)</a></li>
+                                                 Payment)</a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -636,7 +640,7 @@
                                             <i class="czi-book text-heading mr-2"></i> Lớp 10
                                         </a>
                                         <!-- <a class="dropdown-item dropdown-toggle" href="#" data-toggle="dropdown">Navbar
-                                    Variants</a> -->
+                                  Variants</a> -->
                                         <div class="dropdown-menu pt-0">
                                             <div class="d-flex flex-wrap flex-md-nowrap px-2">
                                                 <div class="mega-dropdown-column py-4 px-3">
@@ -696,7 +700,7 @@
                                                             <li class="widget-list-item pb-1"><a class="widget-list-link" href="food-delivery-single.html">Single Item (Restaurant)</a></li>
                                                             <li class="widget-list-item pb-1"><a class="widget-list-link" href="food-delivery-cart.html">Cart (Your Order)</a></li>
                                                             <li class="widget-list-item pb-1"><a class="widget-list-link" href="food-delivery-checkout.html">Checkout (Address &amp;
-                                                   Payment)</a></li>
+                                                 Payment)</a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -709,7 +713,7 @@
                                             <i class="czi-book text-heading mr-2"></i> Lớp 11
                                         </a>
                                         <!-- <a class="dropdown-item dropdown-toggle" href="#" data-toggle="dropdown">Navbar
-                                    Variants</a> -->
+                                  Variants</a> -->
                                         <div class="dropdown-menu pt-0">
                                             <div class="d-flex flex-wrap flex-md-nowrap px-2">
                                                 <div class="mega-dropdown-column py-4 px-3">
@@ -769,7 +773,7 @@
                                                             <li class="widget-list-item pb-1"><a class="widget-list-link" href="food-delivery-single.html">Single Item (Restaurant)</a></li>
                                                             <li class="widget-list-item pb-1"><a class="widget-list-link" href="food-delivery-cart.html">Cart (Your Order)</a></li>
                                                             <li class="widget-list-item pb-1"><a class="widget-list-link" href="food-delivery-checkout.html">Checkout (Address &amp;
-                                                   Payment)</a></li>
+                                                 Payment)</a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -782,7 +786,7 @@
                                             <i class="czi-book text-heading mr-2"></i> Lớp 12
                                         </a>
                                         <!-- <a class="dropdown-item dropdown-toggle" href="#" data-toggle="dropdown">Navbar
-                                    Variants</a> -->
+                                  Variants</a> -->
                                         <div class="dropdown-menu pt-0">
                                             <div class="d-flex flex-wrap flex-md-nowrap px-2">
                                                 <div class="mega-dropdown-column py-4 px-3">
@@ -842,7 +846,7 @@
                                                             <li class="widget-list-item pb-1"><a class="widget-list-link" href="food-delivery-single.html">Single Item (Restaurant)</a></li>
                                                             <li class="widget-list-item pb-1"><a class="widget-list-link" href="food-delivery-cart.html">Cart (Your Order)</a></li>
                                                             <li class="widget-list-item pb-1"><a class="widget-list-link" href="food-delivery-checkout.html">Checkout (Address &amp;
-                                                   Payment)</a></li>
+                                                 Payment)</a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -855,7 +859,7 @@
                                             <i class="czi-book text-heading mr-2"></i> Đại học/ Sau đại học
                                         </a>
                                         <!-- <a class="dropdown-item dropdown-toggle" href="#" data-toggle="dropdown">Navbar
-                                    Variants</a> -->
+                                  Variants</a> -->
                                         <div class="dropdown-menu pt-0">
                                             <div class="d-flex flex-wrap flex-md-nowrap px-2">
                                                 <div class="mega-dropdown-column py-4 px-3">
@@ -915,7 +919,7 @@
                                                             <li class="widget-list-item pb-1"><a class="widget-list-link" href="food-delivery-single.html">Single Item (Restaurant)</a></li>
                                                             <li class="widget-list-item pb-1"><a class="widget-list-link" href="food-delivery-cart.html">Cart (Your Order)</a></li>
                                                             <li class="widget-list-item pb-1"><a class="widget-list-link" href="food-delivery-checkout.html">Checkout (Address &amp;
-                                                   Payment)</a></li>
+                                                 Payment)</a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -928,7 +932,7 @@
                                             <i class="czi-book text-heading mr-2"></i> Thông tin tuyển sinh
                                         </a>
                                         <!-- <a class="dropdown-item dropdown-toggle" href="#" data-toggle="dropdown">Navbar
-                                    Variants</a> -->
+                                  Variants</a> -->
                                         <div class="dropdown-menu pt-0">
                                             <div class="d-flex flex-wrap flex-md-nowrap px-2">
                                                 <div class="mega-dropdown-column py-4 px-3">
@@ -988,7 +992,7 @@
                                                             <li class="widget-list-item pb-1"><a class="widget-list-link" href="food-delivery-single.html">Single Item (Restaurant)</a></li>
                                                             <li class="widget-list-item pb-1"><a class="widget-list-link" href="food-delivery-cart.html">Cart (Your Order)</a></li>
                                                             <li class="widget-list-item pb-1"><a class="widget-list-link" href="food-delivery-checkout.html">Checkout (Address &amp;
-                                                   Payment)</a></li>
+                                                 Payment)</a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1005,56 +1009,56 @@
                                 <ul class="dropdown-menu">
                                     <li class="dropdown position-static mb-0">
                                         <a class="dropdown-item py-2 border-bottom" href="home-fashion-store-v1.html"><span
-                                    class="d-block text-heading">Fashion Store
-                                    v.1</span><small class="d-block text-muted">Classic shop layout</small></a>
+                                  class="d-block text-heading">Fashion Store
+                                  v.1</span><small class="d-block text-muted">Classic shop layout</small></a>
                                         <div class="dropdown-menu h-100 animation-0 mt-0 p-3">
                                         </div>
                                     </li>
                                     <li class="dropdown position-static mb-0">
                                         <a class="dropdown-item py-2 border-bottom" href="home-electronics-store.html"><span
-                                    class="d-block text-heading">Electronics
-                                    Store</span><small class="d-block text-muted">Slider + Promo banners</small></a>
+                                  class="d-block text-heading">Electronics
+                                  Store</span><small class="d-block text-muted">Slider + Promo banners</small></a>
                                         <div class="dropdown-menu h-100 animation-0 mt-0 p-3">
                                             <a class="d-block" href="home-electronics-store.html" style="width: 250px;"></a>
                                         </div>
                                     </li>
                                     <li class="dropdown position-static mb-0">
                                         <a class="dropdown-item py-2 border-bottom" href="home-marketplace.html"><span
-                                    class="d-block text-heading">Marketplace</span><small
-                                    class="d-block text-muted">Multi-vendor, digital goods</small></a>
+                                  class="d-block text-heading">Marketplace</span><small
+                                  class="d-block text-muted">Multi-vendor, digital goods</small></a>
                                         <div class="dropdown-menu h-100 animation-0 mt-0 p-3">
                                             <a class="d-block" href="home-marketplace.html" style="width: 250px;"></a>
                                         </div>
                                     </li>
                                     <li class="dropdown position-static mb-0">
                                         <a class="dropdown-item py-2 border-bottom" href="home-grocery-store.html"><span
-                                    class="d-block text-heading">Grocery Store</span><small
-                                    class="d-block text-muted">Full width + Side menu</small></a>
+                                  class="d-block text-heading">Grocery Store</span><small
+                                  class="d-block text-muted">Full width + Side menu</small></a>
                                         <div class="dropdown-menu h-100 animation-0 mt-0 p-3">
                                             <a class="d-block" href="home-grocery-store.html" style="width: 250px;"></a>
                                         </div>
                                     </li>
                                     <li class="dropdown position-static mb-0">
                                         <a class="dropdown-item py-2 border-bottom" href="home-food-delivery.html"><span
-                                    class="d-block text-heading">Food Delivery
-                                    Service</span><small class="d-block text-muted">Food &amp; Beverages
-                                    delivery</small></a>
+                                  class="d-block text-heading">Food Delivery
+                                  Service</span><small class="d-block text-muted">Food &amp; Beverages
+                                  delivery</small></a>
                                         <div class="dropdown-menu h-100 animation-0 mt-0 p-3">
                                             <a class="d-block" href="home-food-delivery.html" style="width: 250px;"></a>
                                         </div>
                                     </li>
                                     <li class="dropdown position-static mb-0">
                                         <a class="dropdown-item py-2 border-bottom" href="home-fashion-store-v2.html"><span
-                                    class="d-block text-heading">Fashion Store
-                                    v.2</span><small class="d-block text-muted">Slider + Featured categories</small></a>
+                                  class="d-block text-heading">Fashion Store
+                                  v.2</span><small class="d-block text-muted">Slider + Featured categories</small></a>
                                         <div class="dropdown-menu h-100 animation-0 mt-0 p-3">
                                             <a class="d-block" href="home-fashion-store-v2.html" style="width: 250px;"></a>
                                         </div>
                                     </li>
                                     <li class="dropdown position-static mb-0">
                                         <a class="dropdown-item py-2" href="home-single-store.html"><span
-                                    class="d-block text-heading">Single Product Store</span><small
-                                    class="d-block text-muted">Single product / mono brand</small></a>
+                                  class="d-block text-heading">Single Product Store</span><small
+                                  class="d-block text-muted">Single product / mono brand</small></a>
                                         <div class="dropdown-menu h-100 animation-0 mt-0 p-3">
                                             <a class="d-block" href="home-single-store.html" style="width: 250px;"></a>
                                         </div>
@@ -1063,7 +1067,7 @@
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Lớp
-                           10</a>
+                         10</a>
                                 <div class="dropdown-menu p-0">
                                     <div class="d-flex flex-wrap flex-md-nowrap px-2">
                                         <div class="mega-dropdown-column py-4 px-3">
@@ -1071,22 +1075,22 @@
                                                 <h4 class="font-size-base mb-3">Shop layouts</h4>
                                                 <ul class="widget-list">
                                                     <li class="widget-list-item pb-1"><a class="widget-list-link" href="shop-grid-ls.html">Shop
-                                             Grid - Left Sidebar</a>
+                                           Grid - Left Sidebar</a>
                                                     </li>
                                                     <li class="widget-list-item pb-1"><a class="widget-list-link" href="shop-grid-rs.html">Shop
-                                             Grid - Right Sidebar</a>
+                                           Grid - Right Sidebar</a>
                                                     </li>
                                                     <li class="widget-list-item pb-1"><a class="widget-list-link" href="shop-grid-ft.html">Shop
-                                             Grid - Filters on Top</a>
+                                           Grid - Filters on Top</a>
                                                     </li>
                                                     <li class="widget-list-item pb-1"><a class="widget-list-link" href="shop-list-ls.html">Shop
-                                             List - Left Sidebar</a>
+                                           List - Left Sidebar</a>
                                                     </li>
                                                     <li class="widget-list-item pb-1"><a class="widget-list-link" href="shop-list-rs.html">Shop
-                                             List - Right Sidebar</a>
+                                           List - Right Sidebar</a>
                                                     </li>
                                                     <li class="widget-list-item pb-1"><a class="widget-list-link" href="shop-list-ft.html">Shop
-                                             List - Filters on Top</a>
+                                           List - Filters on Top</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -1106,7 +1110,7 @@
                                                 <h4 class="font-size-base mb-3">Shop pages</h4>
                                                 <ul class="widget-list">
                                                     <li class="widget-list-item pb-1"><a class="widget-list-link" href="shop-categories.html">Shop
-                                             Categories</a>
+                                           Categories</a>
                                                     </li>
                                                     <li class="widget-list-item pb-1"><a class="widget-list-link" href="shop-single-v1.html">Product Page v.1</a></li>
                                                     <li class="widget-list-item pb-1"><a class="widget-list-link" href="shop-single-v2.html">Product Page v.2</a></li>
@@ -1118,10 +1122,10 @@
                                                     <li class="widget-list-item pb-1"><a class="widget-list-link" href="checkout-review.html">Checkout - Review</a></li>
                                                     <li class="widget-list-item pb-1"><a class="widget-list-link" href="checkout-complete.html">Checkout - Complete</a></li>
                                                     <li class="widget-list-item pb-1"><a class="widget-list-link" href="order-tracking.html">Order
-                                             Tracking</a>
+                                           Tracking</a>
                                                     </li>
                                                     <li class="widget-list-item pb-1"><a class="widget-list-link" href="comparison.html">Product
-                                             Comparison</a>
+                                           Comparison</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -1151,11 +1155,11 @@
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Lớp
-                           11</a>
+                         11</a>
                                 <ul class="dropdown-menu">
                                     <li class="dropdown">
                                         <a class="dropdown-item dropdown-toggle" href="#" data-toggle="dropdown">Shop
-                                 User Account</a>
+                               User Account</a>
                                         <ul class="dropdown-menu">
                                             <li><a class="dropdown-item" href="account-orders.html">Orders History</a></li>
                                             <li><a class="dropdown-item" href="account-profile.html">Profile Settings</a></li>
@@ -1168,7 +1172,7 @@
                                     </li>
                                     <li class="dropdown">
                                         <a class="dropdown-item dropdown-toggle" href="#" data-toggle="dropdown">Vendor
-                                 Dashboard</a>
+                               Dashboard</a>
                                         <ul class="dropdown-menu">
                                             <li><a class="dropdown-item" href="dashboard-settings.html">Settings</a></li>
                                             <li><a class="dropdown-item" href="dashboard-purchases.html">Purchases</a></li>
@@ -1186,11 +1190,11 @@
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Lớp
-                           12</a>
+                         12</a>
                                 <ul class="dropdown-menu">
                                     <li class="dropdown">
                                         <a class="dropdown-item dropdown-toggle" href="#" data-toggle="dropdown">Navbar
-                                 Variants</a>
+                               Variants</a>
                                         <div class="dropdown-menu">
                                             <div class="d-flex flex-wrap flex-md-nowrap px-2">
                                                 <div class="mega-dropdown-column py-4 px-3">
@@ -1250,7 +1254,7 @@
                                                             <li class="widget-list-item pb-1"><a class="widget-list-link" href="food-delivery-single.html">Single Item (Restaurant)</a></li>
                                                             <li class="widget-list-item pb-1"><a class="widget-list-link" href="food-delivery-cart.html">Cart (Your Order)</a></li>
                                                             <li class="widget-list-item pb-1"><a class="widget-list-link" href="food-delivery-checkout.html">Checkout (Address &amp;
-                                                   Payment)</a></li>
+                                                 Payment)</a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -1263,7 +1267,7 @@
                                     <li><a class="dropdown-item" href="contacts.html">Contacts</a></li>
                                     <li class="dropdown">
                                         <a class="dropdown-item dropdown-toggle" href="#" data-toggle="dropdown">Help
-                                 Center</a>
+                               Center</a>
                                         <ul class="dropdown-menu">
                                             <li><a class="dropdown-item" href="help-topics.html">Help Topics</a></li>
                                             <li><a class="dropdown-item" href="help-single-topic.html">Single Topic</a></li>
@@ -1272,7 +1276,7 @@
                                     </li>
                                     <li class="dropdown">
                                         <a class="dropdown-item dropdown-toggle" href="#" data-toggle="dropdown">404 Not
-                                 Found</a>
+                               Found</a>
                                         <ul class="dropdown-menu">
                                             <li><a class="dropdown-item" href="404-simple.html">404 - Simple Text</a></li>
                                             <li><a class="dropdown-item" href="404-illustration.html">404 - Illustration</a></li>
@@ -1282,11 +1286,11 @@
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Đại
-                           học</a>
+                         học</a>
                                 <ul class="dropdown-menu">
                                     <li class="dropdown">
                                         <a class="dropdown-item dropdown-toggle" href="#" data-toggle="dropdown">Blog
-                                 List Layouts</a>
+                               List Layouts</a>
                                         <ul class="dropdown-menu">
                                             <li><a class="dropdown-item" href="blog-list-sidebar.html">List with Sidebar</a></li>
                                             <li><a class="dropdown-item" href="blog-list.html">List no Sidebar</a></li>
@@ -1294,7 +1298,7 @@
                                     </li>
                                     <li class="dropdown">
                                         <a class="dropdown-item dropdown-toggle" href="#" data-toggle="dropdown">Blog
-                                 Grid Layouts</a>
+                               Grid Layouts</a>
                                         <ul class="dropdown-menu">
                                             <li><a class="dropdown-item" href="blog-grid-sidebar.html">Grid with Sidebar</a></li>
                                             <li><a class="dropdown-item" href="blog-grid.html">Grid no Sidebar</a></li>
@@ -1302,7 +1306,7 @@
                                     </li>
                                     <li class="dropdown">
                                         <a class="dropdown-item dropdown-toggle" href="#" data-toggle="dropdown">Single
-                                 Post Layouts</a>
+                               Post Layouts</a>
                                         <ul class="dropdown-menu">
                                             <li><a class="dropdown-item" href="blog-single-sidebar.html">Article with Sidebar</a>
                                             </li>
@@ -1313,8 +1317,8 @@
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Sau đại
-                           học /
-                           Đi làm</a>
+                         học /
+                         Đi làm</a>
                                 <ul class="dropdown-menu">
                                     <li>
                                         <a class="dropdown-item" href="docs/dev-setup.html">
@@ -1330,8 +1334,8 @@
                                             <div class="d-flex">
                                                 <div class="lead text-muted pt-1"><i class="czi-server"></i></div>
                                                 <div class="ml-2"><span class="d-block text-heading">Components<span
-                                             class="badge badge-info ml-2">40+</span></span><small class="d-block text-muted">Faster
-                                          page building</small>
+                                           class="badge badge-info ml-2">40+</span></span><small class="d-block text-muted">Faster
+                                        page building</small>
                                                 </div>
                                             </div>
                                         </a>
@@ -1342,7 +1346,7 @@
                                             <div class="d-flex">
                                                 <div class="lead text-muted pt-1"><i class="czi-edit"></i></div>
                                                 <div class="ml-2"><span class="d-block text-heading">Changelog<span
-                                             class="badge badge-success ml-2">v1.4</span></span><small class="d-block text-muted">Regular updates</small></div>
+                                           class="badge badge-success ml-2">v1.4</span></span><small class="d-block text-muted">Regular updates</small></div>
                                             </div>
                                         </a>
                                     </li>
@@ -1363,466 +1367,448 @@
             </div>
         </div>
     </header>
-    <!-- News Head-->
-    <section class="container pt-4 pb-4">
-        <h1 class="no-show">Tiêu đề H1 quản lý trong trang quản trị</h1>
-        <div class="row">
-            <div class="col-lg-8 border-right">
-                <!-- Featured post -->
-                <article class="pb-4 position-relative featured-main-post">
-                    <a class="blog-entry-thumb mb-3" href="#">
-                        <span class="blog-entry-meta-label font-size-sm">
-                     <i class="czi-time"></i>
-                     25/10
-                  </span>
-                        <img src="img/blog/featured/02.jpg" alt="Featured post">
-                    </a>
-                    <div class="bg-trans">
-                        <div class="d-flex justify-content-between mb-2">
-                            <h2 class="h2 blog-entry-title mb-0">
-                                <a href="#">Chuyến tàu đưa Biden từ nơi dưỡng già tới đỉnh cao sự nghiệp</a>
-                            </h2>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <div class="font-size-sm text-muted pr-2">
-                                <a href="#" class="blog-entry-meta-link">Shopping</a>
-                                <span class="blog-entry-meta-divider"></span>
-                                <a href="#" class="blog-entry-meta-link">Personal finance</a>
-                            </div>
-                            <div class="font-size-sm">
-                                <a class="blog-entry-meta-link" href="#">1 phút trước</a>
-                                <span class="blog-entry-meta-divider"></span>
-                                <a class="blog-entry-meta-link text-nowrap" href="#">
-                                    <i class="czi-message"></i> 15
-                                </a>
-                                |
-                                <a class="blog-entry-meta-link text-nowrap" href="#">
-                                    <i class="czi-eye"></i> 150
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-                <!--Sub head news-->
-                <article class="blog-list mb-3">
-                    <div class="left-column">
-                        <a class="blog-entry-thumb mb-3" href="#"><img src="img/blog/01.jpg" alt="Post"></a>
-                    </div>
-                    <div class="right-column">
-                        <h3 class="h5 blog-entry-title"><a href="#">Đề xuất tăng quyền tự chủ cho thành phố Thủ Đức khu vực
-                        phía Nam
-                        HCM</a>
-                        </h3>
-                        <div class="d-flex justify-content-between mb-1">
-                            <div class="font-size-sm text-muted pr-2 mb-2">
-                                <a href="#" class="blog-entry-meta-link">Shopping</a>
-                                <span class="blog-entry-meta-divider"></span>
-                                <a href="#" class="blog-entry-meta-link">Personal finance</a>
-                            </div>
-                            <div class="font-size-sm">
-                                <a class="blog-entry-meta-link" href="#">1 phút trước</a>
-                                <span class="blog-entry-meta-divider"></span>
-                                <a class="blog-entry-meta-link text-nowrap" href="#">
-                                    <i class="czi-message"></i> 15
-                                </a>
-                                |
-                                <a class="blog-entry-meta-link text-nowrap" href="#">
-                                    <i class="czi-eye"></i> 150
-                                </a>
-                            </div>
-                        </div>
-                        <p class="font-size-sm">Nhiều chuyên gia cho rằng nếu đề xuất lập thành phố Thủ Đức thuộc TP HCM được Thường vụ Quốc hội thông qua, cần tăng phân cấp, phân quyền tạo động lực phát triển ...
-                        </p>
-                    </div>
-                </article>
-                <!--Sub head news-->
-                <article class="blog-list mb-3">
-                    <div class="left-column">
-                        <a class="blog-entry-thumb mb-3" href="#"><img src="img/blog/02.jpg" alt="Post"></a>
-                    </div>
-                    <div class="right-column">
-                        <h3 class="h5 blog-entry-title"><a href="#">Đề xuất tăng quyền tự chủ cho thành phố Thủ Đức khu vực
-                        phía Nam
-                        HCM</a>
-                        </h3>
-                        <div class="d-flex justify-content-between mb-1">
-                            <div class="font-size-sm text-muted pr-2 mb-2">
-                                <a href="#" class="blog-entry-meta-link">Shopping</a>
-                                <span class="blog-entry-meta-divider"></span>
-                                <a href="#" class="blog-entry-meta-link">Personal finance</a>
-                            </div>
-                            <div class="font-size-sm">
-                                <a class="blog-entry-meta-link" href="#">1 phút trước</a>
-                                <span class="blog-entry-meta-divider"></span>
-                                <a class="blog-entry-meta-link text-nowrap" href="#">
-                                    <i class="czi-message"></i> 15
-                                </a>
-                                |
-                                <a class="blog-entry-meta-link text-nowrap" href="#">
-                                    <i class="czi-eye"></i> 150
-                                </a>
-                            </div>
-                        </div>
-                        <p class="font-size-sm">Nhiều chuyên gia cho rằng nếu đề xuất lập thành phố Thủ Đức thuộc TP HCM được Thường vụ Quốc hội thông qua, cần tăng phân cấp, phân quyền tạo động lực phát triển ...
-                        </p>
-                    </div>
-                </article>
-                <!--Sub head news-->
-                <article class="blog-list mb-3">
-                    <div class="left-column">
-                        <a class="blog-entry-thumb mb-3" href="#"><img src="img/blog/03.jpg" alt="Post"></a>
-                    </div>
-                    <div class="right-column">
-                        <h3 class="h5 blog-entry-title"><a href="#">Đề xuất tăng quyền tự chủ cho thành phố Thủ Đức khu vực
-                        phía Nam
-                        HCM</a>
-                        </h3>
-                        <div class="d-flex justify-content-between mb-1">
-                            <div class="font-size-sm text-muted pr-2 mb-2">
-                                <a href="#" class="blog-entry-meta-link">Shopping</a>
-                                <span class="blog-entry-meta-divider"></span>
-                                <a href="#" class="blog-entry-meta-link">Personal finance</a>
-                            </div>
-                            <div class="font-size-sm">
-                                <a class="blog-entry-meta-link" href="#">1 phút trước</a>
-                                <span class="blog-entry-meta-divider"></span>
-                                <a class="blog-entry-meta-link text-nowrap" href="#">
-                                    <i class="czi-message"></i> 15
-                                </a>
-                                |
-                                <a class="blog-entry-meta-link text-nowrap" href="#">
-                                    <i class="czi-eye"></i> 150
-                                </a>
-                            </div>
-                        </div>
-                        <p class="font-size-sm">Nhiều chuyên gia cho rằng nếu đề xuất lập thành phố Thủ Đức thuộc TP HCM được Thường vụ Quốc hội thông qua, cần tăng phân cấp, phân quyền tạo động lực phát triển ...
-                        </p>
-                    </div>
-                </article>
-                <!--View more Khi click vào Xem thêm sẽ load ra 5 bài viết mới nhất-->
-                <div class="text-center">
-                    <a class="btn btn-outline-accent" href="marketplace-category.html">Xem thêm<i
-                     class="czi-arrow-right font-size-ms ml-1"></i></a>
-                </div>
+
+    <!-- Page title-->
+    <!-- Page Title (Light)-->
+    <div class="bg-secondary py-4">
+        <div class="container-fluid d-lg-flex justify-content-between py-2 py-lg-3">
+            <div class="order-lg-2 mb-3 mb-lg-0 pt-lg-2">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb flex-lg-nowrap justify-content-center justify-content-lg-start">
+                        <li class="breadcrumb-item"><a class="text-nowrap" href="index.html"><i class="czi-home"></i>Trang chủ</a></li>
+                        <li class="breadcrumb-item text-nowrap"><a href="#">Danh mục</a>
+                        </li>
+                        <li class="breadcrumb-item text-nowrap active" aria-current="page">Danh mục cấp 1</li>
+                    </ol>
+                </nav>
             </div>
-            <aside class="col-lg-4">
+            <div class="order-lg-1 pr-lg-4 text-center text-lg-left">
+                <h1 class="h3 mb-0">Click vào danh mục cấp 1</h1>
+            </div>
+        </div>
+    </div>
+    <!-- Page Content-->
+    <div class="main container-fluid pb-5">
+        <div class="row pt-3 mt-lg-2">
+            <aside class="col-md-3">
                 <!-- Sidebar-->
-                <div class="cz-sidebar ml-0" id="blog-sidebar">
+                <div class="cz-sidebar ml-0 p-0" id="blog-sidebar">
                     <div class="cz-sidebar-header box-shadow-sm">
                         <button class="close ml-auto" type="button" data-dismiss="sidebar" aria-label="Close"><span
-                        class="d-inline-block font-size-xs font-weight-normal align-middle">Close sidebar</span><span
-                        class="d-inline-block align-middle ml-2" aria-hidden="true">×</span></button>
+                class="d-inline-block font-size-xs font-weight-normal align-middle">Close sidebar</span><span
+                class="d-inline-block align-middle ml-2" aria-hidden="true">&times;</span></button>
                     </div>
-                    <div class="cz-sidebar-body p-0" data-simplebar="init" data-simplebar-auto-hide="true">
-                        <div class="simplebar-wrapper">
-                            <div class="simplebar-height-auto-observer-wrapper">
-                                <div class="simplebar-height-auto-observer"></div>
-                            </div>
-                            <div class="simplebar-mask">
-                                <div class="simplebar-offset" style="right: 0px; bottom: 0px;">
-                                    <div class="simplebar-content-wrapper" style="height: auto; overflow: hidden;">
-                                        <div class="simplebar-content p-0">
-                                            <!-- Promo banner-->
-                                            <div class="widget widget-links mb-grid-gutter pb-grid-gutter border-bottom">
-                                                <a class="d-block" href="shop-grid-ls.html"><img class="d-block rounded-lg" src="img/home/banners/v-banner.jpg" alt="Promo banner"></a>
-                                            </div>
-                                            <!-- Trending posts-->
-                                            <div class="widget mb-grid-gutter pb-grid-gutter border-bottom">
-                                                <h3 class="widget-title">Xem nhiều</h3>
-                                                <div class="media align-items-center mb-3">
-                                                    <a href="blog-single.html"><img class="rounded" src="img/blog/widget/01.jpg" width="64" alt="Post image"></a>
-                                                    <div class="media-body pl-3">
-                                                        <h6 class="blog-entry-title font-size-sm mb-0"><a href="blog-single.html">Retro Cameras are
-                                                Trending. Why so Popular?</a>
-                                                        </h6>
-                                                        <span class="font-size-ms text-muted">by <a href="#"
-                                                class="blog-entry-meta-link">Andy Williams</a></span>
-                                                    </div>
-                                                </div>
-                                                <div class="media align-items-center mb-3">
-                                                    <a href="blog-single.html"><img class="rounded" src="img/blog/widget/02.jpg" width="64" alt="Post image"></a>
-                                                    <div class="media-body pl-3">
-                                                        <h6 class="blog-entry-title font-size-sm mb-0"><a href="blog-single.html">New
-                                                Trends in
-                                                Suburban Fashion</a>
-                                                        </h6>
-                                                        <span class="font-size-ms text-muted">by <a href="#"
-                                                class="blog-entry-meta-link">Susan Mayer</a></span>
-                                                    </div>
-                                                </div>
-                                                <div class="media align-items-center">
-                                                    <a href="blog-single.html"><img class="rounded" src="img/blog/widget/03.jpg" width="64" alt="Post image"></a>
-                                                    <div class="media-body pl-3">
-                                                        <h6 class="blog-entry-title font-size-sm mb-0"><a href="blog-single.html">Augmented Reality
-                                                - Game Changing Technology</a>
-                                                        </h6>
-                                                        <span class="font-size-ms text-muted">by <a href="#"
-                                                class="blog-entry-meta-link">John Doe</a></span>
-                                                    </div>
-                                                </div>
-                                                <div class="media align-items-center mb-3">
-                                                    <a href="blog-single.html"><img class="rounded" src="img/blog/widget/01.jpg" width="64" alt="Post image"></a>
-                                                    <div class="media-body pl-3">
-                                                        <h6 class="blog-entry-title font-size-sm mb-0"><a href="blog-single.html">Retro Cameras are
-                                                Trending. Why so Popular?</a>
-                                                        </h6>
-                                                        <span class="font-size-ms text-muted">by <a href="#"
-                                                class="blog-entry-meta-link">Andy Williams</a></span>
-                                                    </div>
-                                                </div>
-                                                <div class="media align-items-center mb-3">
-                                                    <a href="blog-single.html"><img class="rounded" src="img/blog/widget/02.jpg" width="64" alt="Post image"></a>
-                                                    <div class="media-body pl-3">
-                                                        <h6 class="blog-entry-title font-size-sm mb-0"><a href="blog-single.html">New
-                                                Trends in
-                                                Suburban Fashion</a>
-                                                        </h6>
-                                                        <span class="font-size-ms text-muted">by <a href="#"
-                                                class="blog-entry-meta-link">Susan Mayer</a></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- Popular tags-->
-                                            <div class="widget mb-grid-gutter">
-                                                <h3 class="widget-title">Popular tags</h3>
-                                                <a class="btn-tag mr-2 mb-2" href="#">#fashion</a><a class="btn-tag mr-2 mb-2" href="#">#gadgets</a><a class="btn-tag mr-2 mb-2" href="#">#online
-                                       shopping</a><a class="btn-tag mr-2 mb-2" href="#">#top brands</a><a class="btn-tag mr-2 mb-2" href="#">#travel</a><a class="btn-tag mr-2 mb-2" href="#">#cartzilla news</a><a class="btn-tag mr-2 mb-2" href="#">#personal
-                                       finance</a><a class="btn-tag mr-2 mb-2" href="#">#tips &amp; tricks</a>
-                                            </div>
-                                            <!-- Trending posts-->
-                                            <div class="widget mb-grid-gutter pb-grid-gutter border-bottom">
-                                                <h3 class="widget-title">Fanpages</h3>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="cz-sidebar-body p-0" data-simplebar data-simplebar-auto-hide="true">
+                        <!-- Promo banner-->
+                        <div class="widget widget-links mb-grid-gutter pb-grid-gutter border-bottom">
+                            <a class="d-block" href="shop-grid-ls.html"><img class="d-block rounded-lg" src="img/home/banners/v-banner.jpg" alt="Promo banner"></a>
                         </div>
+                        <!-- Categories-->
+                        <div class="widget widget-links mb-grid-gutter pb-grid-gutter border-bottom">
+                            <h3 class="h6">Danh mục cấp 1 (.1)</h3>
+                            <ul class="list-unstyled font-size-sm mb-0">
+                                <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style ml-2" href="#"><i class="czi-arrow-right-circle mr-2"></i>Danh mục cấp 2 (.1)</a><span class="font-size-ms text-muted">235</span></li>
+                                <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style ml-2" href="#"><i class="czi-arrow-right-circle mr-2"></i>Danh mục cấp 2.(.2)</a><span class="font-size-ms text-muted">410</span>
+                                </li>
+                                <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style ml-2 active" href="#"><i class="czi-arrow-right-circle mr-2"></i>Danh mục cấp 2.(.3)</a><span class="font-size-ms text-muted">107</span></li>
+                            </ul>
+                        </div>
+                        <!-- Categories-->
+                        <div class="widget widget-links mb-grid-gutter pb-grid-gutter border-bottom">
+                            <h3 class="h6">Danh mục cấp 1 (.2)</h3>
+                            <ul class="list-unstyled font-size-sm mb-0">
+                                <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style ml-2" href="#"><i class="czi-arrow-right-circle mr-2"></i>Danh mục cấp 2 (.1)</a><span class="font-size-ms text-muted">235</span></li>
+                                <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style ml-2" href="#"><i class="czi-arrow-right-circle mr-2"></i>Danh mục cấp 2.(.2)</a><span class="font-size-ms text-muted">410</span>
+                                </li>
+                                <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style ml-2" href="#"><i class="czi-arrow-right-circle mr-2"></i>Danh mục cấp 2.(.3)</a><span class="font-size-ms text-muted">107</span></li>
+                                <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style ml-2" href="#"><i class="czi-arrow-right-circle mr-2"></i>Danh mục cấp 2.(.4)</a><span class="font-size-ms text-muted">107</span></li>
+                                <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style ml-2" href="#"><i class="czi-arrow-right-circle mr-2"></i>Danh mục cấp 2.(.5)</a><span class="font-size-ms text-muted">107</span></li>
+                                <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style ml-2" href="#"><i class="czi-arrow-right-circle mr-2"></i>Danh mục cấp 2.(.6)</a><span class="font-size-ms text-muted">107</span></li>
+                                <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style ml-2" href="#"><i class="czi-arrow-right-circle mr-2"></i>Danh mục cấp 2.(.7)</a><span class="font-size-ms text-muted">107</span></li>
+
+                            </ul>
+                        </div>
+                        <!-- Categories-->
+                        <div class="widget widget-links mb-grid-gutter pb-grid-gutter border-bottom">
+                            <h3 class="h6">Danh mục cấp 1 (.3)</h3>
+                            <ul class="list-unstyled font-size-sm mb-0">
+                                <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style ml-2" href="#"><i class="czi-arrow-right-circle mr-2"></i>Danh mục cấp 2 (.1)</a><span class="font-size-ms text-muted">235</span></li>
+                                <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style ml-2" href="#"><i class="czi-arrow-right-circle mr-2"></i>Danh mục cấp 2.(.2)</a><span class="font-size-ms text-muted">410</span>
+                                </li>
+                                <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style ml-2" href="#"><i class="czi-arrow-right-circle mr-2"></i>Danh mục cấp 2.(.3)</a><span class="font-size-ms text-muted">107</span></li>
+                                <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style ml-2" href="#"><i class="czi-arrow-right-circle mr-2"></i>Danh mục cấp 2.(.4)</a><span class="font-size-ms text-muted">107</span></li>
+                                <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style ml-2" href="#"><i class="czi-arrow-right-circle mr-2"></i>Danh mục cấp 2.(.5)</a><span class="font-size-ms text-muted">107</span></li>
+                            </ul>
+                        </div>
+
+
                     </div>
                 </div>
             </aside>
+
+            <section class="col-md-7 border-right">
+
+                <!--Sub head news-->
+                <article class="blog-list mb-3">
+                    <div class="left-column">
+                        <a class="blog-entry-thumb mb-3" href="#"><img class="lazy" alt="Post" src="img/blog/01.jpg"></a>
+                    </div>
+                    <div class="right-column">
+                        <h3 class="h5 blog-entry-title"><a href="#">Đề xuất tăng quyền tự chủ cho thành phố Thủ Đức khu vực phía Nam
+                        HCM</a></h3>
+                        <div class="d-flex justify-content-between mb-1">
+                            <div class="font-size-sm text-muted pr-2 mb-2">
+                                <a href="#" class="blog-entry-meta-link">DM cấp 1</a>
+                                <span class="blog-entry-meta-divider"></span>
+                                <a href="#" class="blog-entry-meta-link">DM cấp 2.1</a>
+                            </div>
+                            <div class="font-size-sm mb-2">
+                                <a class="blog-entry-meta-link" href="#">27 phút trước</a>
+                                <span class="blog-entry-meta-divider"></span>
+                                <a class="blog-entry-meta-link text-nowrap" href="#">
+                                    <i class="czi-message"></i> 15
+                                </a>
+                            </div>
+                        </div>
+                        <p class="font-size-sm">Nhiều chuyên gia cho rằng nếu đề xuất lập thành phố Thủ Đức thuộc TP HCM được Thường vụ Quốc hội thông qua, cần tăng phân cấp, phân quyền tạo động lực phát triển ...
+                            <a href="#" class="blog-entry-meta-link font-weight-medium"></a>
+                        </p>
+                    </div>
+                </article>
+                <!--Sub head news-->
+                <article class="blog-list mb-3">
+                    <div class="left-column">
+                        <a class="blog-entry-thumb mb-3" href="#"><img class="lazy" alt="Post" src="img/blog/02.jpg"></a>
+                    </div>
+                    <div class="right-column">
+                        <h3 class="h5 blog-entry-title"><a href="#">Đề xuất tăng quyền tự chủ cho thành phố Thủ Đức khu vực phía Nam
+                        HCM</a></h3>
+                        <div class="d-flex justify-content-between mb-1">
+
+                            <div class="font-size-sm text-muted pr-2 mb-2">
+                                <a href="#" class="blog-entry-meta-link">DM cấp 2</a>
+                                <span class="blog-entry-meta-divider"></span>
+                                <a href="#" class="blog-entry-meta-link">DM cấp 2.1</a>
+                            </div>
+                            <div class="font-size-sm mb-2">
+                                <a class="blog-entry-meta-link" href="#">27 phút trước</a>
+                                <span class="blog-entry-meta-divider"></span>
+                                <a class="blog-entry-meta-link text-nowrap" href="#">
+                                    <i class="czi-message"></i> 15
+                                </a>
+                            </div>
+                        </div>
+                        <p class="font-size-sm">Nhiều chuyên gia cho rằng nếu đề xuất lập thành phố Thủ Đức thuộc TP HCM được Thường vụ Quốc hội thông qua, cần tăng phân cấp, phân quyền tạo động lực phát triển ...
+                            <a href="#" class="blog-entry-meta-link font-weight-medium"></a>
+                        </p>
+                    </div>
+                </article>
+                <!--Sub head news-->
+                <article class="blog-list mb-3">
+                    <div class="left-column">
+                        <a class="blog-entry-thumb mb-3" href="#"><img class="lazy" alt="Post" src="img/blog/03.jpg"></a>
+                    </div>
+                    <div class="right-column">
+                        <h3 class="h5 blog-entry-title"><a href="#">Đề xuất tăng quyền tự chủ cho thành phố Thủ Đức khu vực phía Nam
+                        HCM</a></h3>
+                        <div class="d-flex justify-content-between mb-1">
+
+                            <div class="font-size-sm text-muted pr-2 mb-2">
+                                <a href="#" class="blog-entry-meta-link">Shopping</a>
+                                <span class="blog-entry-meta-divider"></span>
+                                <a href="#" class="blog-entry-meta-link">Personal finance</a>
+                            </div>
+                            <div class="font-size-sm mb-2">
+                                <a class="blog-entry-meta-link" href="#">1 ngày trước</a>
+                                <span class="blog-entry-meta-divider"></span>
+                                <a class="blog-entry-meta-link text-nowrap" href="#">
+                                    <i class="czi-message"></i> 15
+                                </a>
+                            </div>
+                        </div>
+                        <p class="font-size-sm">Nhiều chuyên gia cho rằng nếu đề xuất lập thành phố Thủ Đức thuộc TP HCM được Thường vụ Quốc hội thông qua, cần tăng phân cấp, phân quyền tạo động lực phát triển ...
+                            <a href="#" class="blog-entry-meta-link font-weight-medium"></a>
+                        </p>
+                    </div>
+                </article>
+                <!--Sub head news-->
+                <article class="blog-list mb-3">
+                    <div class="left-column">
+                        <a class="blog-entry-thumb mb-3" href="#"><img class="lazy" alt="Post" src="img/blog/01.jpg"></a>
+                    </div>
+                    <div class="right-column">
+                        <h3 class="h5 blog-entry-title"><a href="#">Đề xuất tăng quyền tự chủ cho thành phố Thủ Đức khu vực phía Nam
+                      HCM</a></h3>
+                        <div class="d-flex justify-content-between mb-1">
+                            <div class="font-size-sm text-muted pr-2 mb-2">
+                                <a href="#" class="blog-entry-meta-link">Shopping</a>
+                                <span class="blog-entry-meta-divider"></span>
+                                <a href="#" class="blog-entry-meta-link">Personal finance</a>
+                            </div>
+                            <div class="font-size-sm mb-2">
+                                <a class="blog-entry-meta-link" href="#">27 phút trước</a>
+                                <span class="blog-entry-meta-divider"></span>
+                                <a class="blog-entry-meta-link text-nowrap" href="#">
+                                    <i class="czi-message"></i> 15
+                                </a>
+                            </div>
+                        </div>
+                        <p class="font-size-sm">Nhiều chuyên gia cho rằng nếu đề xuất lập thành phố Thủ Đức thuộc TP HCM được Thường vụ Quốc hội thông qua, cần tăng phân cấp, phân quyền tạo động lực phát triển ...
+                            <a href="#" class="blog-entry-meta-link font-weight-medium"></a>
+                        </p>
+                    </div>
+                </article>
+                <!--Sub head news-->
+                <article class="blog-list mb-3">
+                    <div class="left-column">
+                        <a class="blog-entry-thumb mb-3" href="#"><img class="lazy" alt="Post" src="img/blog/02.jpg"></a>
+                    </div>
+                    <div class="right-column">
+                        <h3 class="h5 blog-entry-title"><a href="#">Đề xuất tăng quyền tự chủ cho thành phố Thủ Đức khu vực phía Nam
+                      HCM</a></h3>
+                        <div class="d-flex justify-content-between mb-1">
+
+                            <div class="font-size-sm text-muted pr-2 mb-2">
+                                <a href="#" class="blog-entry-meta-link">Shopping</a>
+                                <span class="blog-entry-meta-divider"></span>
+                                <a href="#" class="blog-entry-meta-link">Personal finance</a>
+                            </div>
+                            <div class="font-size-sm mb-2">
+                                <a class="blog-entry-meta-link" href="#">27 phút trước</a>
+                                <span class="blog-entry-meta-divider"></span>
+                                <a class="blog-entry-meta-link text-nowrap" href="#">
+                                    <i class="czi-message"></i> 15
+                                </a>
+                            </div>
+                        </div>
+                        <p class="font-size-sm">Nhiều chuyên gia cho rằng nếu đề xuất lập thành phố Thủ Đức thuộc TP HCM được Thường vụ Quốc hội thông qua, cần tăng phân cấp, phân quyền tạo động lực phát triển ...
+                            <a href="#" class="blog-entry-meta-link font-weight-medium"></a>
+                        </p>
+                    </div>
+                </article>
+                <!--Sub head news-->
+                <article class="blog-list mb-3">
+                    <div class="left-column">
+                        <a class="blog-entry-thumb mb-3" href="#"><img class="lazy" alt="Post" src="img/blog/03.jpg"></a>
+                    </div>
+                    <div class="right-column">
+                        <h3 class="h5 blog-entry-title"><a href="#">Đề xuất tăng quyền tự chủ cho thành phố Thủ Đức khu vực phía Nam
+                      HCM</a></h3>
+                        <div class="d-flex justify-content-between mb-1">
+
+                            <div class="font-size-sm text-muted pr-2 mb-2">
+                                <a href="#" class="blog-entry-meta-link">Shopping</a>
+                                <span class="blog-entry-meta-divider"></span>
+                                <a href="#" class="blog-entry-meta-link">Personal finance</a>
+                            </div>
+                            <div class="font-size-sm mb-2">
+                                <a class="blog-entry-meta-link" href="#">1 ngày trước</a>
+                                <span class="blog-entry-meta-divider"></span>
+                                <a class="blog-entry-meta-link text-nowrap" href="#">
+                                    <i class="czi-message"></i> 15
+                                </a>
+                            </div>
+                        </div>
+                        <p class="font-size-sm">Nhiều chuyên gia cho rằng nếu đề xuất lập thành phố Thủ Đức thuộc TP HCM được Thường vụ Quốc hội thông qua, cần tăng phân cấp, phân quyền tạo động lực phát triển ...
+                            <a href="#" class="blog-entry-meta-link font-weight-medium"></a>
+                        </p>
+                    </div>
+                </article>
+                <!--Sub head news-->
+                <article class="blog-list mb-3">
+                    <div class="left-column">
+                        <a class="blog-entry-thumb mb-3" href="#"><img class="lazy" alt="Post" src="img/blog/01.jpg"></a>
+                    </div>
+                    <div class="right-column">
+                        <h3 class="h5 blog-entry-title"><a href="#">Đề xuất tăng quyền tự chủ cho thành phố Thủ Đức khu vực phía Nam
+                      HCM</a></h3>
+                        <div class="d-flex justify-content-between mb-1">
+                            <div class="font-size-sm text-muted pr-2 mb-2">
+                                <a href="#" class="blog-entry-meta-link">Shopping</a>
+                                <span class="blog-entry-meta-divider"></span>
+                                <a href="#" class="blog-entry-meta-link">Personal finance</a>
+                            </div>
+                            <div class="font-size-sm mb-2">
+                                <a class="blog-entry-meta-link" href="#">27 phút trước</a>
+                                <span class="blog-entry-meta-divider"></span>
+                                <a class="blog-entry-meta-link text-nowrap" href="#">
+                                    <i class="czi-message"></i> 15
+                                </a>
+                            </div>
+                        </div>
+                        <p class="font-size-sm">Nhiều chuyên gia cho rằng nếu đề xuất lập thành phố Thủ Đức thuộc TP HCM được Thường vụ Quốc hội thông qua, cần tăng phân cấp, phân quyền tạo động lực phát triển ...
+                            <a href="#" class="blog-entry-meta-link font-weight-medium"></a>
+                        </p>
+                    </div>
+                </article>
+                <!--Sub head news-->
+                <article class="blog-list mb-3">
+                    <div class="left-column">
+                        <a class="blog-entry-thumb mb-3" href="#"><img class="lazy" alt="Post" src="img/blog/02.jpg"></a>
+                    </div>
+                    <div class="right-column">
+                        <h3 class="h5 blog-entry-title"><a href="#">Đề xuất tăng quyền tự chủ cho thành phố Thủ Đức khu vực phía Nam
+                      HCM</a></h3>
+                        <div class="d-flex justify-content-between mb-1">
+
+                            <div class="font-size-sm text-muted pr-2 mb-2">
+                                <a href="#" class="blog-entry-meta-link">Shopping</a>
+                                <span class="blog-entry-meta-divider"></span>
+                                <a href="#" class="blog-entry-meta-link">Personal finance</a>
+                            </div>
+                            <div class="font-size-sm mb-2">
+                                <a class="blog-entry-meta-link" href="#">27 phút trước</a>
+                                <span class="blog-entry-meta-divider"></span>
+                                <a class="blog-entry-meta-link text-nowrap" href="#">
+                                    <i class="czi-message"></i> 15
+                                </a>
+                            </div>
+                        </div>
+                        <p class="font-size-sm">Nhiều chuyên gia cho rằng nếu đề xuất lập thành phố Thủ Đức thuộc TP HCM được Thường vụ Quốc hội thông qua, cần tăng phân cấp, phân quyền tạo động lực phát triển ...
+                            <a href="#" class="blog-entry-meta-link font-weight-medium"></a>
+                        </p>
+                    </div>
+                </article>
+                <!--Sub head news-->
+                <article class="blog-list mb-3">
+                    <div class="left-column">
+                        <a class="blog-entry-thumb mb-3" href="#"><img class="lazy" alt="Post" src="img/blog/03.jpg"></a>
+                    </div>
+                    <div class="right-column">
+                        <h3 class="h5 blog-entry-title"><a href="#">Đề xuất tăng quyền tự chủ cho thành phố Thủ Đức khu vực phía Nam
+                      HCM</a></h3>
+                        <div class="d-flex justify-content-between mb-1">
+
+                            <div class="font-size-sm text-muted pr-2 mb-2">
+                                <a href="#" class="blog-entry-meta-link">Shopping</a>
+                                <span class="blog-entry-meta-divider"></span>
+                                <a href="#" class="blog-entry-meta-link">Personal finance</a>
+                            </div>
+                            <div class="font-size-sm mb-2">
+                                <a class="blog-entry-meta-link" href="#">1 ngày trước</a>
+                                <span class="blog-entry-meta-divider"></span>
+                                <a class="blog-entry-meta-link text-nowrap" href="#">
+                                    <i class="czi-message"></i> 15
+                                </a>
+                            </div>
+                        </div>
+                        <p class="font-size-sm">Nhiều chuyên gia cho rằng nếu đề xuất lập thành phố Thủ Đức thuộc TP HCM được Thường vụ Quốc hội thông qua, cần tăng phân cấp, phân quyền tạo động lực phát triển ...
+                            <a href="#" class="blog-entry-meta-link font-weight-medium"></a>
+                        </p>
+                    </div>
+                </article>
+                <!--Sub head news-->
+                <article class="blog-list mb-3">
+                    <div class="left-column">
+                        <a class="blog-entry-thumb mb-3" href="#"><img class="lazy" alt="Post" src="img/blog/02.jpg"></a>
+                    </div>
+                    <div class="right-column">
+                        <h3 class="h5 blog-entry-title"><a href="#">Đề xuất tăng quyền tự chủ cho thành phố Thủ Đức khu vực phía Nam
+                    HCM</a></h3>
+                        <div class="d-flex justify-content-between mb-1">
+
+                            <div class="font-size-sm text-muted pr-2 mb-2">
+                                <a href="#" class="blog-entry-meta-link">Shopping</a>
+                                <span class="blog-entry-meta-divider"></span>
+                                <a href="#" class="blog-entry-meta-link">Personal finance</a>
+                            </div>
+                            <div class="font-size-sm mb-2">
+                                <a class="blog-entry-meta-link" href="#">27 phút trước</a>
+                                <span class="blog-entry-meta-divider"></span>
+                                <a class="blog-entry-meta-link text-nowrap" href="#">
+                                    <i class="czi-message"></i> 15
+                                </a>
+                            </div>
+                        </div>
+                        <p class="font-size-sm">Nhiều chuyên gia cho rằng nếu đề xuất lập thành phố Thủ Đức thuộc TP HCM được Thường vụ Quốc hội thông qua, cần tăng phân cấp, phân quyền tạo động lực phát triển ...
+                            <a href="#" class="blog-entry-meta-link font-weight-medium"></a>
+                        </p>
+                    </div>
+                </article>
+
+                <!--Pagination-->
+                <nav class="d-flex justify-content-between pt-2" aria-label="Page navigation">
+                    <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="#"><i class="czi-arrow-left mr-2"></i>Prev</a></li>
+                    </ul>
+                    <ul class="pagination">
+                        <li class="page-item d-sm-none"><span class="page-link page-link-static">1 / 5</span></li>
+                        <li class="page-item active d-none d-sm-block" aria-current="page"><span class="page-link">1<span class="sr-only">(current)</span></span>
+                        </li>
+                        <li class="page-item d-none d-sm-block"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item d-none d-sm-block"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item d-none d-sm-block"><a class="page-link" href="#">4</a></li>
+                        <li class="page-item d-none d-sm-block"><a class="page-link" href="#">5</a></li>
+                    </ul>
+                    <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="#" aria-label="Next">Next<i class="czi-arrow-right ml-2"></i></a></li>
+                    </ul>
+                </nav>
+
+                <!-- Show Content Category Page -->
+                <div class="text-center mt-4">
+                    <a class="btn btn-outline-accent" href="#collapseContentCategory" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseContentCategory">Xem thêm nội dung<i class="czi-arrow-right font-size-ms ml-1"></i></a>
+                </div>
+
+                <!-- Collapse -->
+                <div class="collapse mt-4" id="collapseContentCategory">
+                    <div class="card card-body">
+                        Covid-19 và nỗi lo về an ninh đang làm phân tâm nhiều đại cử tri Mỹ với vai trò của mình, trọng trách lâu nay vẫn được coi là niềm tự hào.</br>Tại Michigan, các đại cử tri đảng Dân chủ đã được cảnh sát hứa hộ tống từ xe của họ
+                        tới tòa nhà nghị viện bang, nơi vào ngày 14/12 họ có nhiệm vụ bỏ phiếu xác nhận chiến thắng cho Tổng thống đắc cử Joe Biden của đảng mình.
+
+                        </br>Tại Arizona, giới chức bang tổ chức cuộc bỏ phiếu của đại cử tri tại một địa điểm bí mật vì lý do an toàn.</br>
+
+                        Thậm chí tại Delaware, bang quê nhà của Tổng thống đắc cử, các quan chức đã chuyển buổi bỏ phiếu sang một nhà thi đấu trường đại học, nơi được cho là an ninh và dễ kiểm soát y tế hơn.
+                    </div>
+                </div>
+
+            </section>
+
+            <aside class="col-md-2">
+                <!-- Promo banner-->
+                <div class="bg-size-cover bg-position-center rounded-lg py-5 mb-3" style="background-image: url(img/blog/banner-bg.jpg);">
+                    <div class="py-5 px-4 text-center">
+                        <p class="h5 mb-2">Banner Quảng cáo</p>
+                        <p class="font-size-sm text-muted">Hurry up to reserve your spot</p><a class="btn btn-primary btn-shadow btn-sm" href="#">Contact us</a>
+                    </div>
+                </div>
+                <!-- Trending posts-->
+                <div class="widget mb-grid-gutter pb-grid-gutter border-bottom">
+                    <p class="h3 widget-title">Xem nhiều</p>
+                    <div class="media align-items-center">
+                        <a href="blog-single.html"><img class="rounded" src="img/blog/widget/03.jpg" width="64" alt="Post image"></a>
+                        <div class="media-body pl-3">
+                            <h6 class="blog-entry-title font-size-sm mb-0"><a href="blog-single.html">Augmented Reality - Game Changing Technology</a></h6>
+                        </div>
+                    </div>
+                    <div class="media align-items-center mb-3">
+                        <a href="blog-single.html"><img class="rounded" src="img/blog/widget/01.jpg" width="64" alt="Post image"></a>
+                        <div class="media-body pl-3">
+                            <h6 class="blog-entry-title font-size-sm mb-0"><a href="blog-single.html">Retro Cameras are Trending.
+          Why so Popular?</a></h6>
+                        </div>
+                    </div>
+                    <div class="media align-items-center mb-3">
+                        <a href="blog-single.html"><img class="rounded" src="img/blog/widget/02.jpg" width="64" alt="Post image"></a>
+                        <div class="media-body pl-3">
+                            <h6 class="blog-entry-title font-size-sm mb-0"><a href="blog-single.html">New Trends in Suburban
+          Fashion</a></h6>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- Popular tags-->
+                <div class="widget mb-grid-gutter">
+                    <p class="h3 widget-title">Tags phổ biến</p><a class="btn-tag mr-2 mb-2" href="#">#fashion</a><a class="btn-tag mr-2 mb-2" href="#">#gadgets</a><a class="btn-tag mr-2 mb-2" href="#">#online
+    shopping</a><a class="btn-tag mr-2 mb-2" href="#">#top brands</a><a class="btn-tag mr-2 mb-2" href="#">#travel</a><a class="btn-tag mr-2 mb-2" href="#">#cartzilla news</a><a class="btn-tag mr-2 mb-2" href="#">#personal finance</a><a class="btn-tag mr-2 mb-2"
+                        href="#">#tips
+    &amp; tricks</a>
+                </div>
+
+            </aside>
         </div>
-    </section>
-    <!-- Page Content-->
-    <section class="container-fluid px-0 pb-5">
-        <div class="row no-gutters">
-            <div class="col-md-6">
-                <a class="card border-0 rounded-0 text-decoration-none py-md-4 bg-faded-primary" href="blog-list-sidebar.html">
-                    <div class="card-body text-center">
-                        <i class="czi-edit h3 mt-2 mb-4 text-primary"></i>
-                        <h3 class="h5 mb-1">Các bài viết hay nhất</h3>
-                        <p class="text-muted font-size-sm">Tổng hợp các bài viết hay và chất lượng nhất</p>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-6">
-                <a class="card border-0 rounded-0 text-decoration-none py-md-4 bg-faded-accent" href="#">
-                    <div class="card-body text-center">
-                        <i class="czi-instagram h3 mt-2 mb-4 text-accent"></i>
-                        <h3 class="h5 mb-1">Follow on Youtube</h3>
-                        <p class="text-muted font-size-sm">#KenhYoutbe</p>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-    <!-- Category All-->
-    <section class="container pb-4 pb-sm-4">
-        <h2 class="h3 text-center">Danh mục</h2>
-        <p class="text-muted text-center mb-3 pb-4">Hiển thị thông tin mô tả của phần danh mục tin tức liên quan, chi tiết đế cấp 1 và cấp 2
-        </p>
-        <!-- Categories grid-->
-        <div class="row">
-            <!-- Catogory-->
-            <div class="col-md-4 col-sm-6 mb-3">
-                <div class="card border-0">
-                    <a class="d-block overflow-hidden rounded-lg" href="shop-grid-ls.html"><img class="d-block w-100" src="img/shop/categories/01.jpg" alt="Clothing"></a>
-                    <div class="card-body">
-                        <h2 class="h5">Clothing</h2>
-                        <ul class="list-unstyled font-size-sm mb-0">
-                            <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style" href="#"><i
-                              class="czi-arrow-right-circle mr-2"></i>Blazers &amp; Suits</a><span class="font-size-ms text-muted">235</span></li>
-                            <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style" href="#"><i
-                              class="czi-arrow-right-circle mr-2"></i>Blouse</a><span class="font-size-ms text-muted">410</span>
-                            </li>
-                            <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style" href="#"><i
-                              class="czi-arrow-right-circle mr-2"></i>Cardigans &amp; Jumpers</a><span class="font-size-ms text-muted">107</span></li>
-                            <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style" href="#"><i
-                              class="czi-arrow-right-circle mr-2"></i>Dresses</a><span class="font-size-ms text-muted">93</span>
-                            </li>
-                            <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style" href="#"><i
-                              class="czi-arrow-right-circle mr-2"></i>Hoodie &amp; Sweatshirts</a><span class="font-size-ms text-muted">93</span></li>
-                            <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style" href="#"><i
-                              class="czi-arrow-right-circle mr-2"></i>Sportswear</a><span class="font-size-ms text-muted">65</span></li>
-                            <li>...</li>
-                            <li>
-                                <hr>
-                            </li>
-                            <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style" href="#"><i
-                              class="czi-arrow-right-circle mr-2"></i>View all</a><span class="font-size-ms text-muted">2,548</span></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!-- Catogory-->
-            <div class="col-md-4 col-sm-6 mb-3">
-                <div class="card border-0">
-                    <a class="d-block overflow-hidden rounded-lg" href="shop-grid-ls.html"><img class="d-block w-100 " src="img/shop/categories/02.jpg" alt="Shoes"></a>
-                    <div class="card-body">
-                        <h2 class="h5">Shoes</h2>
-                        <ul class="list-unstyled font-size-sm mb-0">
-                            <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style" href="#"><i
-                              class="czi-arrow-right-circle mr-2"></i>Pumps &amp; High Heels</a><span class="font-size-ms text-muted">247</span></li>
-                            <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style" href="#"><i
-                              class="czi-arrow-right-circle mr-2"></i>Ballerinas &amp; Flats</a><span class="font-size-ms text-muted">156</span></li>
-                            <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style" href="#"><i
-                              class="czi-arrow-right-circle mr-2"></i>Sandals</a><span class="font-size-ms text-muted">310</span>
-                            </li>
-                            <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style" href="#"><i
-                              class="czi-arrow-right-circle mr-2"></i>Sneakers</a><span class="font-size-ms text-muted">402</span>
-                            </li>
-                            <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style" href="#"><i
-                              class="czi-arrow-right-circle mr-2"></i>Boots</a><span class="font-size-ms text-muted">393</span>
-                            </li>
-                            <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style" href="#"><i
-                              class="czi-arrow-right-circle mr-2"></i>Flip Flops</a><span class="font-size-ms text-muted">116</span></li>
-                            <li>...</li>
-                            <li>
-                                <hr>
-                            </li>
-                            <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style" href="#"><i
-                              class="czi-arrow-right-circle mr-2"></i>View all</a><span class="font-size-ms text-muted">1,953</span></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!-- Catogory-->
-            <div class="col-md-4 col-sm-6 mb-3">
-                <div class="card border-0">
-                    <a class="d-block overflow-hidden rounded-lg" href="shop-grid-ls.html"><img class="d-block w-100 " src="img/shop/categories/03.jpg" alt="Gadgets"></a>
-                    <div class="card-body">
-                        <h2 class="h5">Gadgets</h2>
-                        <ul class="list-unstyled font-size-sm mb-0">
-                            <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style" href="#"><i
-                              class="czi-arrow-right-circle mr-2"></i>Smartphones &amp; Tablets</a><span class="font-size-ms text-muted">436</span></li>
-                            <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style" href="#"><i
-                              class="czi-arrow-right-circle mr-2"></i>Headphones</a><span class="font-size-ms text-muted">308</span></li>
-                            <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style" href="#"><i
-                              class="czi-arrow-right-circle mr-2"></i>Wearable Electronics</a><span class="font-size-ms text-muted">195</span></li>
-                            <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style" href="#"><i
-                              class="czi-arrow-right-circle mr-2"></i>Home IoT Gadgets</a><span class="font-size-ms text-muted">82</span></li>
-                            <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style" href="#"><i
-                              class="czi-arrow-right-circle mr-2"></i>Computers &amp; Accessories</a><span class="font-size-ms text-muted">264</span></li>
-                            <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style" href="#"><i
-                              class="czi-arrow-right-circle mr-2"></i>Cameras, Photo &amp; Video</a><span class="font-size-ms text-muted">57</span></li>
-                            <li>...</li>
-                            <li>
-                                <hr>
-                            </li>
-                            <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style" href="#"><i
-                              class="czi-arrow-right-circle mr-2"></i>View all</a><span class="font-size-ms text-muted">1,240</span></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!-- Catogory-->
-            <div class="col-md-4 col-sm-6 mb-3">
-                <div class="card border-0">
-                    <a class="d-block overflow-hidden rounded-lg" href="shop-grid-ls.html"><img class="d-block w-100 " src="img/shop/categories/04.jpg" alt="Furniture"></a>
-                    <div class="card-body">
-                        <h2 class="h5">Furniture &amp; Decor</h2>
-                        <ul class="list-unstyled font-size-sm mb-0">
-                            <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style" href="#"><i
-                              class="czi-arrow-right-circle mr-2"></i>Lounge Seating</a><span class="font-size-ms text-muted">374</span></li>
-                            <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style" href="#"><i
-                              class="czi-arrow-right-circle mr-2"></i>File Cabinets</a><span class="font-size-ms text-muted">83</span></li>
-                            <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style" href="#"><i
-                              class="czi-arrow-right-circle mr-2"></i>Tables</a><span class="font-size-ms text-muted">125</span>
-                            </li>
-                            <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style" href="#"><i
-                              class="czi-arrow-right-circle mr-2"></i>Indoor Lighting</a><span class="font-size-ms text-muted">291</span></li>
-                            <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style" href="#"><i
-                              class="czi-arrow-right-circle mr-2"></i>Office Chairs</a><span class="font-size-ms text-muted">118</span></li>
-                            <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style" href="#"><i
-                              class="czi-arrow-right-circle mr-2"></i>Adjustable Height Desks</a><span class="font-size-ms text-muted">46</span></li>
-                            <li>...</li>
-                            <li>
-                                <hr>
-                            </li>
-                            <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style" href="#"><i
-                              class="czi-arrow-right-circle mr-2"></i>View all</a><span class="font-size-ms text-muted">960</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!-- Catogory-->
-            <div class="col-md-4 col-sm-6 mb-3">
-                <div class="card border-0">
-                    <a class="d-block overflow-hidden rounded-lg" href="shop-grid-ls.html"><img class="d-block w-100 " src="img/shop/categories/05.jpg" alt="Accessories"></a>
-                    <div class="card-body">
-                        <h2 class="h5">Accessories</h2>
-                        <ul class="list-unstyled font-size-sm mb-0">
-                            <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style" href="#"><i
-                              class="czi-arrow-right-circle mr-2"></i>Bags</a><span class="font-size-ms text-muted">417</span>
-                            </li>
-                            <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style" href="#"><i
-                              class="czi-arrow-right-circle mr-2"></i>Sunglasses</a><span class="font-size-ms text-muted">382</span></li>
-                            <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style" href="#"><i
-                              class="czi-arrow-right-circle mr-2"></i>Watches</a><span class="font-size-ms text-muted">122</span>
-                            </li>
-                            <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style" href="#"><i
-                              class="czi-arrow-right-circle mr-2"></i>Hats</a><span class="font-size-ms text-muted">204</span>
-                            </li>
-                            <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style" href="#"><i
-                              class="czi-arrow-right-circle mr-2"></i>Jewelry</a><span class="font-size-ms text-muted">149</span>
-                            </li>
-                            <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style" href="#"><i
-                              class="czi-arrow-right-circle mr-2"></i>Cosmetics</a><span class="font-size-ms text-muted">90</span>
-                            </li>
-                            <li>...</li>
-                            <li>
-                                <hr>
-                            </li>
-                            <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style" href="#"><i
-                              class="czi-arrow-right-circle mr-2"></i>View all</a><span class="font-size-ms text-muted">1,532</span></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!-- Catogory-->
-            <div class="col-md-4 col-sm-6 mb-3">
-                <div class="card border-0">
-                    <a class="d-block overflow-hidden rounded-lg" href="shop-grid-ls.html"><img class="d-block w-100 " src="img/shop/categories/06.jpg" alt="Entertainment"></a>
-                    <div class="card-body">
-                        <h2 class="h5">Entertainment</h2>
-                        <ul class="list-unstyled font-size-sm mb-0">
-                            <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style" href="#"><i
-                              class="czi-arrow-right-circle mr-2"></i>Video Games, VR</a><span class="font-size-ms text-muted">306</span></li>
-                            <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style" href="#"><i
-                              class="czi-arrow-right-circle mr-2"></i>Kid's Toys</a><span class="font-size-ms text-muted">231</span></li>
-                            <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style" href="#"><i
-                              class="czi-arrow-right-circle mr-2"></i>Table Games</a><span class="font-size-ms text-muted">114</span></li>
-                            <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style" href="#"><i
-                              class="czi-arrow-right-circle mr-2"></i>Outdoor / Camping</a><span class="font-size-ms text-muted">92</span></li>
-                            <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style" href="#"><i
-                              class="czi-arrow-right-circle mr-2"></i>Gifts</a><span class="font-size-ms text-muted">27</span>
-                            </li>
-                            <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style" href="#"><i
-                              class="czi-arrow-right-circle mr-2"></i>Music, CDs &amp; Vinyl</a><span class="font-size-ms text-muted">41</span></li>
-                            <li>...</li>
-                            <li>
-                                <hr>
-                            </li>
-                            <li class="d-flex align-items-center justify-content-between"><a class="nav-link-style" href="#"><i
-                              class="czi-arrow-right-circle mr-2"></i>View all</a><span class="font-size-ms text-muted">879</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    </div>
+
     <!-- Footer-->
     <footer class="bg-dark pt-5">
         <div class="container">
@@ -1898,52 +1884,51 @@
         </div>
     </footer>
     <!-- Toolbar for handheld devices-->
-    <section class="cz-handheld-toolbar">
+    <div class="cz-handheld-toolbar">
         <div class="d-table table-fixed w-100">
             <a class="d-table-cell cz-handheld-toolbar-item" href="#blog-sidebar" data-toggle="sidebar"><span
-               class="cz-handheld-toolbar-icon"><i class="czi-sign-in"></i></span><span
-               class="cz-handheld-toolbar-label">Sidebar</span></a>
-            <a class="d-table-cell cz-handheld-toolbar-item" href="account-wishlist.html"><span
-               class="cz-handheld-toolbar-icon"><i class="czi-heart"></i></span><span
-               class="cz-handheld-toolbar-label">Wishlist</span></a><a class="d-table-cell cz-handheld-toolbar-item" href="#navbarCollapse" data-toggle="collapse" onclick="window.scrollTo(0, 0)"><span
-               class="cz-handheld-toolbar-icon"><i class="czi-menu"></i></span><span
-               class="cz-handheld-toolbar-label">Menu</span></a>
-        </div>
-    </section>
-    <!-- Back To Top Button-->
-    <a class="btn-scroll-top" href="#top" data-scroll><span
-         class="btn-scroll-top-tooltip text-muted font-size-sm mr-2">Top</span><i
-         class="btn-scroll-top-icon czi-arrow-up">
-      </i></a>
-    <!-- Vendor scrits: js libraries and plugins-->
-    <script src="vendor/jquery/dist/jquery.slim.min.js" async></script>
-    <script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js" async></script>
-    <script src="vendor/bs-custom-file-input/dist/bs-custom-file-input.min.js" async></script>
-    <!--  <script src="vendor/simplebar/dist/simplebar.min.js"></script> -->
-    <!-- <script src="vendor/tiny-slider/dist/min/tiny-slider.js"></script> -->
-    <script src="vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js" async></script>
-    <!-- Lazy loading image lib -->
-    <!-- <script type="text/javascript" src="vendor/lazy-loading/jquery.lazy.min.js" async></script> -->
+          class="cz-handheld-toolbar-icon"><i class="czi-sign-in"></i></span><span
+          class="cz-handheld-toolbar-label">Sidebar</span></a>
 
-    <!-- Setup Lazy loading image -->
-    <!-- <script>
-         $(function () {
-           $('.lazy').Lazy({
-             customLoaderName: function (element) {
-               element.html('element handled by "customLoaderName"');
-               element.load();
-             },
-             asyncLoader: function (element, response) {
-               setTimeout(function () {
-                 element.html('element handled by "asyncLoader"');
-                 response(true);
-               }, 1000);
-             }
-           });
-         });
-      </script> -->
+            <a class="d-table-cell cz-handheld-toolbar-item" href="account-wishlist.html"><span
+          class="cz-handheld-toolbar-icon"><i class="czi-heart"></i></span><span
+          class="cz-handheld-toolbar-label">Wishlist</span></a><a class="d-table-cell cz-handheld-toolbar-item" href="#navbarCollapse" data-toggle="collapse" onclick="window.scrollTo(0, 0)"><span
+          class="cz-handheld-toolbar-icon"><i class="czi-menu"></i></span><span
+          class="cz-handheld-toolbar-label">Menu</span></a>
+        </div>
+    </div>
+    <!-- Back To Top Button--><a class="btn-scroll-top" href="#top" data-scroll><span
+      class="btn-scroll-top-tooltip text-muted font-size-sm mr-2">Top</span><i class="btn-scroll-top-icon czi-arrow-up">
+    </i></a>
+
+    <!-- Vendor scrits: js libraries and plugins-->
+    <script src="vendor/jquery/dist/jquery.slim.min.js"></script>
+    <script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/bs-custom-file-input/dist/bs-custom-file-input.min.js" async></script>
+    <script src="vendor/simplebar/dist/simplebar.min.js" async></script>
+    <script src="vendor/tiny-slider/dist/min/tiny-slider.js" async></script>
+    <script src="vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js" async></script>
+
     <!-- Main theme script-->
     <script src="js/theme.min.js" async></script>
+    <script>
+        $(document).ready(function() {
+            var s = $("#blog-sidebar");
+            //var b = $("#post-relate").position().top;
+            body = $("body");
+            var pos = s.position();
+            $(window).scroll(function() {
+                var windowpos = $(window).scrollTop();
+                if (windowpos >= 300 & windowpos <= 1700) {
+                    // if (windowpos >= pos.top & windowpos <= 1000) {
+                    // s.addClass("fixed-sidebar");
+                    body.addClass("fixed-sidebar");
+                } else {
+                    body.removeClass("fixed-sidebar");
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
