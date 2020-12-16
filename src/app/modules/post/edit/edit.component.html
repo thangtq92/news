@@ -14,10 +14,7 @@
     style="min-height: 404px"
   >
     <ng-container *ngIf="post">
-      <form
-        class="form form-label-right"
-        [formGroup]="form"
-      >
+      <form class="form form-label-right" [formGroup]="form">
         <div class="form-group row">
           <div class="col-lg-12">
             <label class="form-label">Title</label>
@@ -106,6 +103,38 @@
               type="text"
               [(ngModel)]="post.seoDescription"
             />
+          </div>
+          <div class="col-lg-4">
+            <label class="form-label">Categories</label>
+            <br />
+            <mat-form-field appearance="fill">
+              <mat-label>Categories</mat-label>
+              <mat-select
+                formControlName="categories"
+                [(ngModel)]="post.categories"
+                multiple
+              >
+                <mat-select-trigger>
+                  {{
+                    post.categories.length > 0
+                      ? getCatNameFromId(post.categories[0])
+                      : "Chose Category"
+                  }}
+                  <span
+                    *ngIf="post.categories?.length > 1"
+                    class="example-additional-selection"
+                  >
+                    (+{{ post.categories.length - 1 }}
+                    {{ post.categories?.length === 2 ? "other" : "others" }})
+                  </span>
+                </mat-select-trigger>
+                <mat-option
+                  *ngFor="let cat of categoryOptions"
+                  [value]="cat.id"
+                  >{{ cat.name }}</mat-option
+                >
+              </mat-select>
+            </mat-form-field>
           </div>
         </div>
       </form>

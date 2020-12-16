@@ -16,7 +16,10 @@ import { InlineSVGModule } from "ng-inline-svg";
 
 import { CRUDTableModule } from "../../_metronic/shared/crud-table";
 
-import { CKEditorModule } from 'ng2-ckeditor';
+import { CKEditorModule } from "ng2-ckeditor";
+
+import { MatSelectModule } from "@angular/material/select";
+import { MatFormFieldModule } from "@angular/material/form-field";
 
 import {
   NgbDatepickerModule,
@@ -36,6 +39,8 @@ import {
     NgbModalModule,
     NgbDatepickerModule,
     CKEditorModule,
+    MatSelectModule,
+    MatFormFieldModule,
   ],
 })
 export class PostModule {}

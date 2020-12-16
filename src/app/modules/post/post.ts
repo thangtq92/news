@@ -8,4 +8,5 @@ export interface Post {
   seoTitle: string;
   seoKeyword: string;
   seoDescription: string;
+  categories: string[];
 }

@@ -1,10 +1,12 @@
 import { Component, OnInit } from "@angular/core";
 
 import { PostService } from "../post.service";
+import { CategoryService } from "../../category/category.service";
 
 import { ActivatedRoute, Router } from "@angular/router";
 
 import { Post } from "../post";
+import { Category } from "../../category/category";
 
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 
@@ -18,6 +20,7 @@ const EMPTY_POST: Post = {
   seoTitle: "",
   seoKeyword: "",
   seoDescription: "",
+  categories: [],
 };
 @Component({
   selector: "app-edit",
@@ -33,8 +36,11 @@ export class EditComponent implements OnInit {
 
   form: FormGroup;
 
+  categoryOptions: Category[];
+
   constructor(
     public postService: PostService,
+    public categoryService: CategoryService,
 
     private route: ActivatedRoute,
 
@@ -42,6 +48,7 @@ export class EditComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.loadCategoryOptions();
     this.id = parseInt(this.route.snapshot.params["postId"]);
     if (!this.id) {
       this.post = EMPTY_POST;
@@ -55,6 +62,21 @@ export class EditComponent implements OnInit {
     }
   }
 
+  loadCategoryOptions() {
+    this.categoryService.getAll().subscribe((data: Category[]) => {
+      this.categoryOptions = data;
+    });
+  }
+
+  getCatNameFromId(catId) {
+    try {
+      return this.categoryOptions.find((e) => e.id === catId).name;
+    } catch (error) {
+      console.log(`error in get cat name with catId: ${catId}: ${error}`);
+      return null;
+    }
+  }
+
   loadForm() {
     this.form = new FormGroup({
       title: new FormControl(this.post.title, [Validators.required]),
@@ -65,6 +87,7 @@ export class EditComponent implements OnInit {
       seoTitle: new FormControl(this.post.seoTitle),
       seoKeyword: new FormControl(this.post.seoKeyword),
       seoDescription: new FormControl(this.post.seoDescription),
+      categories: new FormControl(this.post.categories),
     });
   }
 
