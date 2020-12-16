@@ -1,0 +1,132 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <div class="modal-title h4" id="example-modal-sizes-title-lg">
+      <ng-container *ngIf="post">
+        <ng-container *ngIf="post.id">Edit</ng-container>
+        <ng-container *ngIf="!post.id">Create</ng-container>
+        Post
+        <ng-container *ngIf="post.id">'{{ post.title }}'</ng-container>
+      </ng-container>
+    </div>
+  </div>
+  <div
+    class="overlay overlay-block cursor-default modal-body"
+    style="min-height: 404px"
+  >
+    <ng-container *ngIf="post">
+      <form
+        class="form form-label-right"
+        [formGroup]="form"
+      >
+        <div class="form-group row">
+          <div class="col-lg-12">
+            <label class="form-label">Title</label>
+            <input
+              class="form-control form-control-lg form-control-solid"
+              placeholder="Title"
+              autocomplete="off"
+              formControlName="title"
+              id="title"
+              type="text"
+              [(ngModel)]="post.title"
+            />
+          </div>
+          <div class="col-lg-12">
+            <label class="form-label">Content</label>
+            <ckeditor formControlName="content"> </ckeditor>
+          </div>
+          <div class="col-lg-4">
+            <label class="form-label">description</label>
+            <input
+              class="form-control form-control-lg form-control-solid"
+              placeholder="description"
+              autocomplete="off"
+              formControlName="description"
+              id="description"
+              type="text"
+              [(ngModel)]="post.description"
+            />
+          </div>
+          <div class="col-lg-4">
+            <label class="form-label">sourceWeb</label>
+            <input
+              class="form-control form-control-lg form-control-solid"
+              placeholder="sourceWeb"
+              autocomplete="off"
+              formControlName="sourceWeb"
+              id="sourceWeb"
+              type="text"
+              [(ngModel)]="post.sourceWeb"
+            />
+          </div>
+          <div class="col-lg-4">
+            <label class="form-label">seoAlias</label>
+            <input
+              class="form-control form-control-lg form-control-solid"
+              placeholder="seoAlias"
+              autocomplete="off"
+              formControlName="seoAlias"
+              id="seoAlias"
+              type="text"
+              [(ngModel)]="post.seoAlias"
+            />
+          </div>
+          <div class="col-lg-4">
+            <label class="form-label">seoTitle</label>
+            <input
+              class="form-control form-control-lg form-control-solid"
+              placeholder="seoTitle"
+              autocomplete="off"
+              formControlName="seoTitle"
+              id="seoTitle"
+              type="text"
+              [(ngModel)]="post.seoTitle"
+            />
+          </div>
+          <div class="col-lg-4">
+            <label class="form-label">seoKeyword</label>
+            <input
+              class="form-control form-control-lg form-control-solid"
+              placeholder="seoKeyword"
+              autocomplete="off"
+              formControlName="seoKeyword"
+              id="seoKeyword"
+              type="text"
+              [(ngModel)]="post.seoKeyword"
+            />
+          </div>
+          <div class="col-lg-4">
+            <label class="form-label">seoDescription</label>
+            <input
+              class="form-control form-control-lg form-control-solid"
+              placeholder="seoDescription"
+              autocomplete="off"
+              formControlName="seoDescription"
+              id="seoDescription"
+              type="text"
+              [(ngModel)]="post.seoDescription"
+            />
+          </div>
+        </div>
+      </form>
+    </ng-container>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-light btn-elevate mr-2"
+      routerLink="/post/index"
+    >
+      Cancel
+    </button>
+    <ng-container *ngIf="post">
+      <button
+        class="btn btn-primary btn-elevate"
+        [disabled]="!form.valid"
+        (click)="save()"
+      >
+        Save
+      </button>
+    </ng-container>
+  </div>
+</div>

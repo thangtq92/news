@@ -1,0 +1,116 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <div class="modal-title h4" id="example-modal-sizes-title-lg">
+      <ng-container *ngIf="tag">
+        <ng-container *ngIf="tag.id">Edit</ng-container>
+        <ng-container *ngIf="!tag.id">Create</ng-container>
+        Tag
+        <ng-container *ngIf="tag.id">'{{ tag.name }}'</ng-container>
+      </ng-container>
+    </div>
+  </div>
+  <div
+    class="overlay overlay-block cursor-default modal-body"
+    style="min-height: 404px"
+  >
+    <ng-container *ngIf="tag">
+      <form
+        class="form form-label-right"
+        [formGroup]="form"
+      >
+        <div class="form-group row">
+          <div class="col-lg-4">
+            <label class="form-label">name</label>
+            <input
+              class="form-control form-control-lg form-control-solid"
+              placeholder="name"
+              autocomplete="off"
+              formControlName="name"
+              id="name"
+              type="text"
+              [(ngModel)]="tag.name"
+            />
+          </div>
+          <div class="col-lg-4">
+            <label class="form-label">content</label>
+            <input
+              class="form-control form-control-lg form-control-solid"
+              placeholder="content"
+              autocomplete="off"
+              formControlName="content"
+              id="content"
+              type="text"
+              [(ngModel)]="tag.content"
+            />
+          </div>
+          <div class="col-lg-4">
+            <label class="form-label">seoAlias</label>
+            <input
+              class="form-control form-control-lg form-control-solid"
+              placeholder="seoAlias"
+              autocomplete="off"
+              formControlName="seoAlias"
+              id="seoAlias"
+              type="text"
+              [(ngModel)]="tag.seoAlias"
+            />
+          </div>
+          <div class="col-lg-4">
+            <label class="form-label">seoTitle</label>
+            <input
+              class="form-control form-control-lg form-control-solid"
+              placeholder="seoTitle"
+              autocomplete="off"
+              formControlName="seoTitle"
+              id="seoTitle"
+              type="text"
+              [(ngModel)]="tag.seoTitle"
+            />
+          </div>
+          <div class="col-lg-4">
+            <label class="form-label">seoKeyword</label>
+            <input
+              class="form-control form-control-lg form-control-solid"
+              placeholder="seoKeyword"
+              autocomplete="off"
+              formControlName="seoKeyword"
+              id="seoKeyword"
+              type="text"
+              [(ngModel)]="tag.seoKeyword"
+            />
+          </div>
+          <div class="col-lg-4">
+            <label class="form-label">seoDescription</label>
+            <input
+              class="form-control form-control-lg form-control-solid"
+              placeholder="seoDescription"
+              autocomplete="off"
+              formControlName="seoDescription"
+              id="seoDescription"
+              type="text"
+              [(ngModel)]="tag.seoDescription"
+            />
+          </div>
+        </div>
+      </form>
+    </ng-container>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-light btn-elevate mr-2"
+      routerLink="/tag/index"
+    >
+      Cancel
+    </button>
+    <ng-container *ngIf="tag">
+      <button
+        class="btn btn-primary btn-elevate"
+        [disabled]="!form.valid"
+        (click)="save()"
+      >
+        Save
+      </button>
+    </ng-container>
+  </div>
+</div>
