@@ -7,13 +7,13 @@ namespace WebApi.Entities
 {
     public partial class PostRelationsDto
     {
-        public long Id { get; set; }
+        public int Id { get; set; }
         public string Title { get; set; }
         public string Thumbnail { get; set; }
         public string Description { get; set; }
         public string Url { get; set; }
-        public long? PostId { get; set; }
-        public long? PostRelationId { get; set; }
+        public int? PostId { get; set; }
+        public int? PostRelationId { get; set; }
         public bool? Status { get; set; }
     }
 }

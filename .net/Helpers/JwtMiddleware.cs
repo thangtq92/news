@@ -31,7 +31,7 @@ namespace WebApi.Helpers
             await _next(context);
         }
 
-        private void attachUserToContext(HttpContext context, IUserService userService, string token)
+        private async void attachUserToContext(HttpContext context, IUserService userService, string token)
         {
             try
             {
@@ -51,9 +51,10 @@ namespace WebApi.Helpers
                 var userId = int.Parse(jwtToken.Claims.First(x => x.Type == "id").Value);
 
                 // attach user to context on successful jwt validation
-                context.Items["User"] = userService.GetById(userId);
+                var a = await userService.GetById(userId);
+                context.Items["User"] = a;
             }
-            catch
+            catch (Exception ex)
             {
                 // do nothing if jwt validation fails
                 // user is not attached to context so request won't have access to secure routes

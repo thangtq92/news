@@ -63,7 +63,7 @@ namespace WebApi.Controllers
 		{
 			var inputEntity = _mapper.Map<PostInTags>(entity);
 			var result = await _postInTagService.Update(inputEntity);
-			return new CustomApiResponse(entity.Id, result ? "Succeeded" : "Failed", !result);
+			return new CustomApiResponse(entity.PostId, result ? "Succeeded" : "Failed", !result);
 		}
 		
 		[HttpDelete("{id}")]

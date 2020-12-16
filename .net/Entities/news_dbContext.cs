@@ -6,13 +6,13 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace WebApi.Entities
 {
-    public partial class TintucContext : DbContext
+    public partial class news_dbContext : DbContext
     {
-        public TintucContext()
+        public news_dbContext()
         {
         }
 
-        public TintucContext(DbContextOptions<TintucContext> options)
+        public news_dbContext(DbContextOptions<news_dbContext> options)
             : base(options)
         {
         }
@@ -21,7 +21,7 @@ namespace WebApi.Entities
         public virtual DbSet<AdvertisementPositions> AdvertisementPositions { get; set; }
         public virtual DbSet<Categories> Categories { get; set; }
         public virtual DbSet<Comments> Comments { get; set; }
-        public virtual DbSet<MenusDto> Menus { get; set; }
+        public virtual DbSet<Menus> Menus { get; set; }
         public virtual DbSet<Options> Options { get; set; }
         public virtual DbSet<Pages> Pages { get; set; }
         public virtual DbSet<PageStatics> PageStatics { get; set; }
@@ -37,7 +37,8 @@ namespace WebApi.Entities
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=./;Database=Tintuc;Trusted_Connection=True;");
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+                optionsBuilder.UseSqlServer("Data Source=103.121.91.66;Initial Catalog=news_db;uid=unews; pwd=@2020;");
             }
         }
 
@@ -56,6 +57,16 @@ namespace WebApi.Entities
                 entity.Property(e => e.ToDate).HasColumnType("datetime");
 
                 entity.Property(e => e.Video).HasMaxLength(250);
+
+                entity.HasOne(d => d.Page)
+                    .WithMany(p => p.Advertisements)
+                    .HasForeignKey(d => d.PageId)
+                    .HasConstraintName("FK_Advertisements_Pages1");
+
+                entity.HasOne(d => d.Position)
+                    .WithMany(p => p.Advertisements)
+                    .HasForeignKey(d => d.PositionId)
+                    .HasConstraintName("FK_Advertisements_AdvertisementPositions");
             });
 
             modelBuilder.Entity<AdvertisementPositions>(entity =>
@@ -65,6 +76,11 @@ namespace WebApi.Entities
                     .IsUnicode(false);
 
                 entity.Property(e => e.Name).HasMaxLength(250);
+
+                entity.HasOne(d => d.Page)
+                    .WithMany(p => p.AdvertisementPositions)
+                    .HasForeignKey(d => d.PageId)
+                    .HasConstraintName("FK_AdvertisementPositions_Pages");
             });
 
             modelBuilder.Entity<Categories>(entity =>
@@ -82,9 +98,9 @@ namespace WebApi.Entities
 
             modelBuilder.Entity<Comments>(entity =>
             {
-                entity.Property(e => e.CreatedTime)
-                    .HasColumnType("datetime")
-                    .HasDefaultValueSql("(getdate())");
+                entity.Property(e => e.Content).HasMaxLength(2000);
+
+                entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
                 entity.Property(e => e.Email).HasMaxLength(50);
 
@@ -94,26 +110,28 @@ namespace WebApi.Entities
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Repost)
+                entity.Property(e => e.Report)
                     .HasMaxLength(10)
-                    .IsFixedLength(true);
+                    .IsFixedLength(true)
+                    .HasComment("Báo xấu, nếu nhiều người click sẽ xóa comment đó đi");
 
-                entity.Property(e => e.UpdateTime).HasColumnType("datetime");
+                entity.HasOne(d => d.Post)
+                    .WithMany(p => p.Comments)
+                    .HasForeignKey(d => d.PostId)
+                    .HasConstraintName("FK_Comments_Posts");
             });
 
-            modelBuilder.Entity<MenusDto>(entity =>
+            modelBuilder.Entity<Menus>(entity =>
             {
-                entity.Property(e => e.CssClass).HasMaxLength(250);
+                entity.Property(e => e.CssClass).HasMaxLength(50);
 
-                entity.Property(e => e.CssIcon).HasMaxLength(250);
+                entity.Property(e => e.CssIcon).HasMaxLength(50);
 
-                entity.Property(e => e.Name)
-                    .HasMaxLength(250)
-                    .IsUnicode(false);
+                entity.Property(e => e.Name).HasMaxLength(250);
 
-                entity.Property(e => e.Url)
-                    .HasMaxLength(250)
-                    .IsUnicode(false);
+                entity.Property(e => e.Type).HasComment("Kiểu menu: Thường, Mega Menu");
+
+                entity.Property(e => e.Url).HasMaxLength(250);
             });
 
             modelBuilder.Entity<Options>(entity =>
@@ -141,6 +159,8 @@ namespace WebApi.Entities
 
             modelBuilder.Entity<Pages>(entity =>
             {
+                entity.Property(e => e.Id).HasComment("Kiểu dữ liệu là URL ví dụ home, danh-muc, tin-tuc");
+
                 entity.Property(e => e.Code)
                     .HasMaxLength(50)
                     .IsUnicode(false);
@@ -173,15 +193,21 @@ namespace WebApi.Entities
             {
                 entity.Property(e => e.Author).HasMaxLength(250);
 
-                entity.Property(e => e.CreatedTime)
+                entity.Property(e => e.CreatedDate)
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.Description).HasMaxLength(500);
+                entity.Property(e => e.Description).HasMaxLength(250);
 
-                entity.Property(e => e.HotDate).HasColumnType("datetime");
+                entity.Property(e => e.HotDate)
+                    .HasColumnType("datetime")
+                    .HasComment("Nếu như có giá trị HotDate và > ngày hôm nay thì hiển thị, không thì không thì sẽ không hiển thị");
 
-                entity.Property(e => e.NewDate).HasColumnType("datetime");
+                entity.Property(e => e.Image).HasMaxLength(250);
+
+                entity.Property(e => e.NewDate)
+                    .HasColumnType("datetime")
+                    .HasComment("> Ngày hiện tại thì mới hiển thị, ko thì tự mất");
 
                 entity.Property(e => e.PublishedDate).HasColumnType("datetime");
 
@@ -193,7 +219,9 @@ namespace WebApi.Entities
 
                 entity.Property(e => e.SeoTitle).HasMaxLength(250);
 
-                entity.Property(e => e.SourceWeb).HasMaxLength(250);
+                entity.Property(e => e.SourceWeb)
+                    .HasMaxLength(250)
+                    .HasComment("Trích nguồn từ đâu");
 
                 entity.Property(e => e.Thumbnail).HasMaxLength(250);
 
@@ -201,14 +229,43 @@ namespace WebApi.Entities
                     .IsRequired()
                     .HasMaxLength(250);
 
-                entity.Property(e => e.UpdateTime)
+                entity.Property(e => e.Type).HasComment("Type thể hiện kiểu bài viết: Mặc định, Hình ảnh, Video, Infographic");
+
+                entity.Property(e => e.UpdateDate)
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.Video).HasMaxLength(250);
+            });
+
+            modelBuilder.Entity<PostInCategories>(entity =>
+            {
+                entity.HasOne(d => d.Category)
+                    .WithMany(p => p.PostInCategories)
+                    .HasForeignKey(d => d.CategoryId)
+                    .HasConstraintName("FK_PostInCategories_Categories");
+            });
+
+            modelBuilder.Entity<PostInTags>(entity =>
+            {
+                entity.HasKey(e => new { e.PostId, e.TagsId });
+
+                entity.HasOne(d => d.Post)
+                    .WithMany(p => p.PostInTags)
+                    .HasForeignKey(d => d.PostId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_PostInTags_Posts");
+
+                entity.HasOne(d => d.Tags)
+                    .WithMany(p => p.PostInTags)
+                    .HasForeignKey(d => d.TagsId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_PostInTags_Tags");
             });
 
             modelBuilder.Entity<PostRelations>(entity =>
             {
-                entity.Property(e => e.Description).HasMaxLength(500);
+                entity.Property(e => e.Description).HasMaxLength(250);
 
                 entity.Property(e => e.Thumbnail).HasMaxLength(250);
 

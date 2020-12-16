@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace WebApi.Entities
+namespace WebApi.Models
 {
-    public partial class Advertisements
+    public partial class Advertisement
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -20,7 +20,5 @@ namespace WebApi.Entities
         public DateTime? ToDate { get; set; }
         public byte? Status { get; set; }
 
-        public virtual Pages Page { get; set; }
-        public virtual AdvertisementPositions Position { get; set; }
     }
 }
