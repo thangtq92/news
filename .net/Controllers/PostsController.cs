@@ -40,12 +40,12 @@ namespace WebApi.Controllers
     [HttpPost]
     public async Task<CustomApiResponse> Post([FromBody] PostsDto entity)
     {
-      var inputEntity = _mapper.Map<Posts>(entity);
+      //var inputEntity = _mapper.Map<Posts>(entity);
       //if (await _postService.IsExisted(entity.Name))
       //{
       //	return new CustomApiResponse("PostName đã tồn tại", true);
       //}
-      var result = await _postService.Add(inputEntity);
+      var result = await _postService.AddPost(entity);
       return new CustomApiResponse(result);
     }
 

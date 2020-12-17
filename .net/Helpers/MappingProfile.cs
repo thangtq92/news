@@ -49,7 +49,8 @@ namespace WebApi.Helpers
 			CreateMap<PostRelations, PostRelationsDto>();
 			CreateMap<PostRelationsDto, PostRelations>();
 
-			CreateMap<Posts, PostsDto>().ForMember(x => x.Comments, opt => opt.Ignore()).ForMember(x => x.PostInTags, opt => opt.Ignore());
+			CreateMap<Posts, PostsDto>().ForMember(x => x.Comments, opt => opt.Ignore()).ForMember(x => x.PostInTags, opt => opt.Ignore())
+				.ForMember(x => x.categoryIds, opt => opt.Ignore());
 			CreateMap<PostsDto, Posts>();
 
 			CreateMap<SystermCodes, SystermCodesDto>();
