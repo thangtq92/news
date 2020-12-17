@@ -18,6 +18,6 @@ namespace WebApi.Entities
         public int CreatedUser { get; set; }
         public int? PostId { get; set; }
 
-        public virtual Posts Post { get; set; }
+     
     }
 }

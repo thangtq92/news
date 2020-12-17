@@ -7,10 +7,7 @@ namespace WebApi.Entities
 {
     public partial class Categories
     {
-        public Categories()
-        {
-            PostInCategories = new HashSet<PostInCategories>();
-        }
+      
 
         public int Id { get; set; }
         public string Name { get; set; }
@@ -25,6 +22,6 @@ namespace WebApi.Entities
         public bool? ShowInMenu { get; set; }
         public byte? Status { get; set; }
 
-        public virtual ICollection<PostInCategories> PostInCategories { get; set; }
+      
     }
 }

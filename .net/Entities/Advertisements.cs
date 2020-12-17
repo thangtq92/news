@@ -20,7 +20,6 @@ namespace WebApi.Entities
         public DateTime? ToDate { get; set; }
         public byte? Status { get; set; }
 
-        public virtual Pages Page { get; set; }
-        public virtual AdvertisementPositions Position { get; set; }
+   
     }
 }

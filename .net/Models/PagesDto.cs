@@ -7,6 +7,11 @@ namespace WebApi.Entities
 {
     public partial class PagesDto
     {
+        public PagesDto()
+        {
+            AdvertisementPositions = new HashSet<AdvertisementPositions>();
+            Advertisements = new HashSet<Advertisements>();
+        }
         public int Id { get; set; }
         public string Code { get; set; }
         public string Title { get; set; }
@@ -16,5 +21,7 @@ namespace WebApi.Entities
         public string SeoKeyword { get; set; }
         public string SeoDescription { get; set; }
         public byte? Status { get; set; }
+        public virtual ICollection<AdvertisementPositions> AdvertisementPositions { get; set; }
+        public virtual ICollection<Advertisements> Advertisements { get; set; }
     }
 }

@@ -16,17 +16,17 @@ namespace WebApi.Helpers
 			CreateMap<Users, UsersDto>();
 			CreateMap<UsersDto, Users>();
 
-			CreateMap<AdvertisementPositions, AdvertisementPositionsDto>();
-			CreateMap<AdvertisementPositionsDto, AdvertisementPositions>().ForMember(x => x.Page, opt => opt.Ignore()).ForMember(x => x.Advertisements, opt => opt.Ignore()) ;
+			CreateMap<AdvertisementPositions, AdvertisementPositionsDto>().ForMember(x => x.Page, opt => opt.Ignore()).ForMember(x => x.Advertisements, opt => opt.Ignore());
+			CreateMap<AdvertisementPositionsDto, AdvertisementPositions>();
 
-			CreateMap<Advertisements, AdvertisementsDto>();
-			CreateMap<AdvertisementsDto, Advertisements>().ForMember(x => x.Page, opt => opt.Ignore()).ForMember(x => x.Position, opt => opt.Ignore());
+			CreateMap<Advertisements, AdvertisementsDto>().ForMember(x => x.Page, opt => opt.Ignore()).ForMember(x => x.Position, opt => opt.Ignore());
+			CreateMap<AdvertisementsDto, Advertisements>();
 
-			CreateMap<Categories, CategoriesDto>();
-			CreateMap<CategoriesDto, Categories>().ForMember(x => x.PostInCategories, opt => opt.Ignore()); 
+			CreateMap<Categories, CategoriesDto>().ForMember(x => x.PostInCategories, opt => opt.Ignore());
+			CreateMap<CategoriesDto, Categories>(); 
 
-			CreateMap<Comments, CommentsDto>();
-			CreateMap<CommentsDto, Comments>().ForMember(x => x.Post, opt => opt.Ignore()); 
+			CreateMap<Comments, CommentsDto>().ForMember(x => x.Post, opt => opt.Ignore());
+			CreateMap<CommentsDto, Comments>(); 
 
 			CreateMap<Menus, MenusDto>();
 			CreateMap<MenusDto, Menus>();
@@ -34,29 +34,29 @@ namespace WebApi.Helpers
 			CreateMap<Options, OptionsDto>();
 			CreateMap<OptionsDto, Options>();
 
-			CreateMap<Pages, PagesDto>();
-			CreateMap<PagesDto, Pages>().ForMember(x => x.AdvertisementPositions, opt => opt.Ignore()).ForMember(x => x.Advertisements, opt => opt.Ignore());
+			CreateMap<Pages, PagesDto>().ForMember(x => x.AdvertisementPositions, opt => opt.Ignore()).ForMember(x => x.Advertisements, opt => opt.Ignore());
+			CreateMap<PagesDto, Pages>();
 
 			CreateMap<PageStatics, PageStaticsDto>();
 			CreateMap<PageStaticsDto, PageStatics>();
 
-			CreateMap<PostInCategories, PostInCategoriesDto>();
-			CreateMap<PostInCategoriesDto, PostInCategories>().ForMember(x => x.Category, opt => opt.Ignore());
+			CreateMap<PostInCategories, PostInCategoriesDto>().ForMember(x => x.Category, opt => opt.Ignore());
+			CreateMap<PostInCategoriesDto, PostInCategories>();
 
-			CreateMap<PostInTags, PostInTagsDto>();
-			CreateMap<PostInTagsDto, PostInTags>().ForMember(x => x.Post, opt => opt.Ignore()).ForMember(x => x.Tags, opt => opt.Ignore());
+			CreateMap<PostInTags, PostInTagsDto>().ForMember(x => x.Post, opt => opt.Ignore()).ForMember(x => x.Tags, opt => opt.Ignore());
+			CreateMap<PostInTagsDto, PostInTags>();
 
 			CreateMap<PostRelations, PostRelationsDto>();
 			CreateMap<PostRelationsDto, PostRelations>();
 
-			CreateMap<Posts, PostsDto>();
-			CreateMap<PostsDto, Posts>().ForMember(x => x.Comments, opt => opt.Ignore()).ForMember(x => x.PostInTags, opt => opt.Ignore());
+			CreateMap<Posts, PostsDto>().ForMember(x => x.Comments, opt => opt.Ignore()).ForMember(x => x.PostInTags, opt => opt.Ignore());
+			CreateMap<PostsDto, Posts>();
 
 			CreateMap<SystermCodes, SystermCodesDto>();
 			CreateMap<SystermCodesDto, SystermCodes>();
 
-			CreateMap<Tags, TagsDto>();
-			CreateMap<TagsDto, Tags>().ForMember(x => x.PostInTags, opt => opt.Ignore());
+			CreateMap<Tags, TagsDto>().ForMember(x => x.PostInTags, opt => opt.Ignore());
+			CreateMap<TagsDto, Tags>();
 		}
 	}
 

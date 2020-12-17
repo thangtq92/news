@@ -76,6 +76,7 @@ namespace WebApi.Repository
 				DynamicParameters parameters = new DynamicParameters();
 				parameters.AddDynamicParams(entity);
 				parameters.Add("Id", direction: ParameterDirection.ReturnValue);
+				parameters.RemoveUnused = true;
 				var result = await cnn.ExecuteScalarAsync(typeof(TEntity).Name + "_Insert", param: parameters, commandType: CommandType.StoredProcedure);
 				return (string)result.ToString();
 			}

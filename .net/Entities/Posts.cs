@@ -7,11 +7,7 @@ namespace WebApi.Entities
 {
     public partial class Posts
     {
-        public Posts()
-        {
-            Comments = new HashSet<Comments>();
-            PostInTags = new HashSet<PostInTags>();
-        }
+  
 
         public int Id { get; set; }
         public string Title { get; set; }
@@ -37,7 +33,6 @@ namespace WebApi.Entities
         public DateTime? PublishedDate { get; set; }
         public byte? Type { get; set; }
 
-        public virtual ICollection<Comments> Comments { get; set; }
-        public virtual ICollection<PostInTags> PostInTags { get; set; }
+   
     }
 }

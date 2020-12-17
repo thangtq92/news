@@ -57,16 +57,7 @@ namespace WebApi.Entities
                 entity.Property(e => e.ToDate).HasColumnType("datetime");
 
                 entity.Property(e => e.Video).HasMaxLength(250);
-
-                entity.HasOne(d => d.Page)
-                    .WithMany(p => p.Advertisements)
-                    .HasForeignKey(d => d.PageId)
-                    .HasConstraintName("FK_Advertisements_Pages1");
-
-                entity.HasOne(d => d.Position)
-                    .WithMany(p => p.Advertisements)
-                    .HasForeignKey(d => d.PositionId)
-                    .HasConstraintName("FK_Advertisements_AdvertisementPositions");
+        
             });
 
             modelBuilder.Entity<AdvertisementPositions>(entity =>
@@ -76,11 +67,6 @@ namespace WebApi.Entities
                     .IsUnicode(false);
 
                 entity.Property(e => e.Name).HasMaxLength(250);
-
-                entity.HasOne(d => d.Page)
-                    .WithMany(p => p.AdvertisementPositions)
-                    .HasForeignKey(d => d.PageId)
-                    .HasConstraintName("FK_AdvertisementPositions_Pages");
             });
 
             modelBuilder.Entity<Categories>(entity =>
@@ -114,11 +100,7 @@ namespace WebApi.Entities
                     .HasMaxLength(10)
                     .IsFixedLength(true)
                     .HasComment("Báo xấu, nếu nhiều người click sẽ xóa comment đó đi");
-
-                entity.HasOne(d => d.Post)
-                    .WithMany(p => p.Comments)
-                    .HasForeignKey(d => d.PostId)
-                    .HasConstraintName("FK_Comments_Posts");
+               
             });
 
             modelBuilder.Entity<Menus>(entity =>
@@ -238,29 +220,10 @@ namespace WebApi.Entities
                 entity.Property(e => e.Video).HasMaxLength(250);
             });
 
-            modelBuilder.Entity<PostInCategories>(entity =>
-            {
-                entity.HasOne(d => d.Category)
-                    .WithMany(p => p.PostInCategories)
-                    .HasForeignKey(d => d.CategoryId)
-                    .HasConstraintName("FK_PostInCategories_Categories");
-            });
-
             modelBuilder.Entity<PostInTags>(entity =>
             {
                 entity.HasKey(e => new { e.PostId, e.TagsId });
-
-                entity.HasOne(d => d.Post)
-                    .WithMany(p => p.PostInTags)
-                    .HasForeignKey(d => d.PostId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_PostInTags_Posts");
-
-                entity.HasOne(d => d.Tags)
-                    .WithMany(p => p.PostInTags)
-                    .HasForeignKey(d => d.TagsId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_PostInTags_Tags");
+              
             });
 
             modelBuilder.Entity<PostRelations>(entity =>

@@ -7,6 +7,10 @@ namespace WebApi.Entities
 {
     public partial class TagsDto
     {
+        public TagsDto()
+        {
+            PostInTags = new HashSet<PostInTags>();
+        }
         public int Id { get; set; }
         public string Slug { get; set; }
         public string Name { get; set; }
@@ -16,5 +20,6 @@ namespace WebApi.Entities
         public string SeoKeyword { get; set; }
         public string SeoDescription { get; set; }
         public byte? Status { get; set; }
+        public virtual ICollection<PostInTags> PostInTags { get; set; }
     }
 }
