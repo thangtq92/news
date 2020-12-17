@@ -110,22 +110,22 @@
             <mat-form-field appearance="fill">
               <mat-label>Categories</mat-label>
               <mat-select
-                formControlName="categories"
-                [(ngModel)]="post.categories"
+                formControlName="categoryIds"
+                [(ngModel)]="post.categoryIds"
                 multiple
               >
                 <mat-select-trigger>
                   {{
-                    post.categories.length > 0
-                      ? getCatNameFromId(post.categories[0])
+                    post.categoryIds.length > 0
+                      ? getCatNameFromId(post.categoryIds[0])
                       : "Chose Category"
                   }}
                   <span
-                    *ngIf="post.categories?.length > 1"
+                    *ngIf="post.categoryIds?.length > 1"
                     class="example-additional-selection"
                   >
-                    (+{{ post.categories.length - 1 }}
-                    {{ post.categories?.length === 2 ? "other" : "others" }})
+                    (+{{ post.categoryIds.length - 1 }}
+                    {{ post.categoryIds?.length === 2 ? "other" : "others" }})
                   </span>
                 </mat-select-trigger>
                 <mat-option

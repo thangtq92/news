@@ -20,7 +20,7 @@ const EMPTY_POST: Post = {
   seoTitle: "",
   seoKeyword: "",
   seoDescription: "",
-  categories: [],
+  categoryIds: [],
 };
 @Component({
   selector: "app-edit",
@@ -87,7 +87,7 @@ export class EditComponent implements OnInit {
       seoTitle: new FormControl(this.post.seoTitle),
       seoKeyword: new FormControl(this.post.seoKeyword),
       seoDescription: new FormControl(this.post.seoDescription),
-      categories: new FormControl(this.post.categories),
+      categoryIds: new FormControl(this.post.categoryIds),
     });
   }
 
