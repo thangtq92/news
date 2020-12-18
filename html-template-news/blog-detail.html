@@ -1885,6 +1885,10 @@
       class="btn-scroll-top-tooltip text-muted font-size-sm mr-2">Top</span><i class="btn-scroll-top-icon czi-arrow-up">
     </i></a>
 
+    <div class='progress-container'>
+        <div class='progress-bar' id='myBar' style="width:0%;"></div>
+    </div>
+
     <!-- Vendor scrits: js libraries and plugins-->
     <script src="vendor/jquery/dist/jquery.slim.min.js"></script>
     <script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -1903,7 +1907,7 @@
             var pos = s.position();
             $(window).scroll(function() {
                 var windowpos = $(window).scrollTop();
-                if (windowpos >= 300 & windowpos <= (b - 500)) {
+                if (windowpos >= 550 & windowpos <= (b - 500)) {
                     // if (windowpos >= pos.top & windowpos <= 1000) {
                     // s.addClass("fixed-sidebar");
                     body.addClass("fixed-sidebar");
@@ -1912,7 +1916,20 @@
                 }
             });
         });
+
+        window.onscroll = function() {
+            myFunction()
+        };
+
+        function myFunction() {
+            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            var scrolled = (winScroll / height) * 100;
+            document.getElementById("myBar").style.width = scrolled + "%";
+        };
     </script>
+
+
 </body>
 
 </html>
