@@ -13,7 +13,7 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 const EMPTY_POST: Post = {
   id: undefined,
   title: "",
-  content: "<p>Hello, world!</p>",
+  content: "",
   description: "",
   sourceWeb: "",
   seoAlias: "",
@@ -21,6 +21,7 @@ const EMPTY_POST: Post = {
   seoKeyword: "",
   seoDescription: "",
   categoryIds: [],
+  tagIds: [],
 };
 @Component({
   selector: "app-edit",

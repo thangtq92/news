@@ -27,7 +27,7 @@ namespace WebApi
 		public void ConfigureServices(IServiceCollection services)
 		{
 			services.AddCors();
-			services.AddControllers();
+			services.AddControllers().AddNewtonsoftJson();
 
 			// configure strongly typed settings object
 			services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));

@@ -17,7 +17,7 @@
       <form class="form form-label-right" [formGroup]="form">
         <div class="form-group row">
           <div class="col-lg-12">
-            <label class="form-label">Title</label>
+            <label class="form-label">Tiêu đề</label>
             <input
               class="form-control form-control-lg form-control-solid"
               placeholder="Title"
@@ -29,12 +29,22 @@
             />
           </div>
           <div class="col-lg-12">
-            <label class="form-label">Content</label>
-            <ckeditor formControlName="content"> </ckeditor>
+            <label class="form-label">Nội dung</label>
+            <ckeditor
+              [(ngModel)]="post.content"
+              #ckeditor
+              imageUploadUrl="http://localhost:4000/upload"
+              debounce="500"
+            >
+            </ckeditor>
           </div>
+
           <div class="col-lg-4">
-            <label class="form-label">description</label>
-            <input
+            <label class="form-label">Mô tả</label>
+            <textarea
+              matInput
+              matAutosizeMinRows="2"
+              matAutosizeMaxRows="5"
               class="form-control form-control-lg form-control-solid"
               placeholder="description"
               autocomplete="off"
@@ -42,10 +52,10 @@
               id="description"
               type="text"
               [(ngModel)]="post.description"
-            />
+            ></textarea>
           </div>
           <div class="col-lg-4">
-            <label class="form-label">sourceWeb</label>
+            <label class="form-label">Source Web</label>
             <input
               class="form-control form-control-lg form-control-solid"
               placeholder="sourceWeb"
@@ -57,7 +67,7 @@
             />
           </div>
           <div class="col-lg-4">
-            <label class="form-label">seoAlias</label>
+            <label class="form-label">Seo Alias</label>
             <input
               class="form-control form-control-lg form-control-solid"
               placeholder="seoAlias"
@@ -69,7 +79,7 @@
             />
           </div>
           <div class="col-lg-4">
-            <label class="form-label">seoTitle</label>
+            <label class="form-label">Seo Title</label>
             <input
               class="form-control form-control-lg form-control-solid"
               placeholder="seoTitle"
@@ -81,7 +91,7 @@
             />
           </div>
           <div class="col-lg-4">
-            <label class="form-label">seoKeyword</label>
+            <label class="form-label">Seo Keyword</label>
             <input
               class="form-control form-control-lg form-control-solid"
               placeholder="seoKeyword"
@@ -93,7 +103,7 @@
             />
           </div>
           <div class="col-lg-4">
-            <label class="form-label">seoDescription</label>
+            <label class="form-label">Seo Description</label>
             <input
               class="form-control form-control-lg form-control-solid"
               placeholder="seoDescription"
@@ -105,10 +115,10 @@
             />
           </div>
           <div class="col-lg-4">
-            <label class="form-label">Categories</label>
+            <label class="form-label">Danh mục</label>
             <br />
             <mat-form-field appearance="fill">
-              <mat-label>Categories</mat-label>
+              <mat-label>Chọn danh mục</mat-label>
               <mat-select
                 formControlName="categoryIds"
                 [(ngModel)]="post.categoryIds"

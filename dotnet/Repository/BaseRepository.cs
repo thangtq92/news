@@ -46,7 +46,7 @@ namespace WebApi.Repository
 
 	}
 
-	public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : class
+	public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : class 
 	{
 		private readonly IDbConnection cnn = null;
 
@@ -158,6 +158,13 @@ namespace WebApi.Repository
 			parameters.Add("@toRow", toRow);
 			var result = await cnn.QueryAsync<TEntity>(typeof(TEntity).Name + "_List", parameters, commandType: StoredProcedure);
 			return result.ToList();
+		}
+		public void Dispose()
+		{
+			if (cnn != null)
+			{
+				cnn.Dispose();
+			}
 		}
 	}
 }

@@ -17,14 +17,18 @@ namespace WebApi.Helpers.SqlServerDB
     public class SqlServerStorage : IDisposable
     {
         private SqlServerStorageConfig _config;
+        private SqlConnection _sqlConnection;
 
         public IDbConnection iDbConnection
         {
             get
             {
-                var sqlConnection = new SqlConnection(_config.ConnectionString);
-                sqlConnection.Open();
-                return sqlConnection;
+                if(_sqlConnection == null)
+				{
+                    _sqlConnection = new SqlConnection(_config.ConnectionString);
+                    _sqlConnection.Open();
+                }
+                return _sqlConnection;
             }
             set { }
         }
