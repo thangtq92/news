@@ -20,6 +20,8 @@ import { CKEditorModule } from "ng2-ckeditor";
 
 import { MatSelectModule } from "@angular/material/select";
 import { MatFormFieldModule } from "@angular/material/form-field";
+import {MatExpansionModule} from "@angular/material/expansion";
+
 
 import {
   NgbDatepickerModule,
@@ -41,6 +43,7 @@ import {
     CKEditorModule,
     MatSelectModule,
     MatFormFieldModule,
+    MatExpansionModule
   ],
 })
 export class PostModule {}
