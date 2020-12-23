@@ -21,21 +21,33 @@
                   [checked]="grouping.checkAreAllRowsSelected()" /><span></span
               ></label>
             </th> -->
-                    <th>
-                        ID
-                        <app-sort-icon column="id"></app-sort-icon>
-                    </th>
-                    <th>
-                        Title
+                    <th width=30>
+                        ID </th>
+                    <th width=200>
+                        Tên
                         <app-sort-icon column="title"></app-sort-icon>
                     </th>
-                    <th>ACTIONS</th>
+                    <th width=200>
+                        Mô tả
+                    </th>
+                    <th width=150>
+                        Danh mục cha
+                    </th>
+                    <th width=150>
+                        Đường dẫn
+                    </th>
+                    <th width=110>ACTIONS</th>
+
                 </thead>
                 <tbody>
                     <tr *ngFor="let category of categories">
                         <td>{{ category.id }}</td>
 
+
                         <td>{{ category.name }}</td>
+                        <td>Loading...</td>
+                        <td>Loading...</td>
+                        <td>Loading...</td>
 
                         <td>
                             <a title="Edit category" class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3" [routerLink]="['/category/', category.id, 'edit']">

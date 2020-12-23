@@ -25,22 +25,29 @@
               [checked]="grouping.checkAreAllRowsSelected()" /><span></span
           ></label>
         </th> -->
-                    <th>
-                        ID
-                        <app-sort-icon column="id"></app-sort-icon>
-                    </th>
-                    <th>
-                        Name
+                    <th width=30>
+                        ID </th>
+                    <th width=200>
+                        Tên
                         <app-sort-icon column="title"></app-sort-icon>
                     </th>
-                    <th>ACTIONS</th>
+                    <th width=350>
+                        Mô tả
+                    </th>
+                    <th width=200>
+                        Đường dẫn
+                    </th>
+                    <th width=110>ACTIONS</th>
+
+
                 </thead>
                 <tbody>
                     <tr *ngFor="let tag of tags">
                         <td>{{ tag.id }}</td>
 
                         <td>{{ tag.name }}</td>
-
+                        <td>Loading...</td>
+                        <td>Loading...</td>
                         <td>
                             <a title="Edit tag" class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3" [routerLink]="['/tag/', tag.id, 'edit']">
                                 <span [inlineSVG]="
