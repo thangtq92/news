@@ -21,6 +21,8 @@ import { CKEditorModule } from "ng2-ckeditor";
 import { MatSelectModule } from "@angular/material/select";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import {MatExpansionModule} from "@angular/material/expansion";
+import {MatChipsModule} from '@angular/material/chips'; //Use for Tags
+
 
 
 import {
@@ -43,7 +45,8 @@ import {
     CKEditorModule,
     MatSelectModule,
     MatFormFieldModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatChipsModule
   ],
 })
 export class PostModule {}

@@ -10,7 +10,7 @@
     <div class="card-body">
         <!-- begin:Table -->
         <div class="table-responsive angular-bootstrap-table">
-            <table class="table table-head-custom table-vertical-center overflow-hidden">
+            <table class="table table-head-custom table-vertical-center">
                 <thead>
                     <!-- <th class="selection-cell-header" data-row-selection="true">
           <label class="checkbox checkbox-single"
@@ -20,22 +20,47 @@
               [checked]="grouping.checkAreAllRowsSelected()" /><span></span
           ></label>
         </th> -->
-                    <th>
-                        ID
-                        <app-sort-icon column="id"></app-sort-icon>
-                    </th>
-                    <th>
-                        Title
+                    <th width=30>
+                        ID </th>
+                    <th width=300>
+                        Tiêu đề
                         <app-sort-icon column="title"></app-sort-icon>
                     </th>
-                    <th>ACTIONS</th>
+                    <th width=120>
+                        Chuyên mục
+                    </th>
+                    <th width=120>
+                        Thẻ
+                    </th>
+                    <th>
+                        Lượt xem
+                    </th>
+                    <th>
+                        Bình luận
+                    </th>
+                    <th>
+                        Tác giả
+                    </th>
+                    <th>
+                        Ngày đăng
+                    </th>
+                    <th width=110>ACTIONS</th>
                 </thead>
                 <tbody>
                     <tr *ngFor="let post of posts">
                         <td>{{ post.id }}</td>
 
-                        <td>{{ post.title }}</td>
-
+                        <td>
+                            <a href="#">
+                                <h6>{{ post.title }}</h6>
+                            </a>
+                        </td>
+                        <td>Loading...</td>
+                        <td>Loading...</td>
+                        <td>Loading...</td>
+                        <td>Loading...</td>
+                        <td>Loading...</td>
+                        <td>Loading...</td>
                         <td>
                             <a title="Edit post" class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3" [routerLink]="['/post/', post.id, 'edit']">
                                 <span [inlineSVG]="
