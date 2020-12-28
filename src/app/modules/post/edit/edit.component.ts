@@ -71,7 +71,7 @@ export class EditComponent implements OnInit {
 
   getCatNameFromId(catId) {
     try {
-      return this.categoryOptions.find((e) => e.id === catId).name;
+      return this.categoryOptions.find((e) => e.id == catId).name;
     } catch (error) {
       console.log(`error in get cat name with catId: ${catId}: ${error}`);
       return null;

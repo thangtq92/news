@@ -31,9 +31,9 @@ namespace WebApi.Controllers
     }
 
     [HttpGet("{id}")]
-    public async Task<IActionResult> Get(string id)
+    public async Task<IActionResult> GetPost(string id)
     {
-      var result = await _postService.Get(id);
+      var result = await _postService.GetPost(id);
       return Ok(result);
     }
 

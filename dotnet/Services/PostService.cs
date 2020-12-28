@@ -10,6 +10,7 @@ namespace WebApi.Services
     public interface IPostService : IBaseService<Posts>
     {
         Task<string> AddPost(PostsDto postDto);
+        Task<PostsDto> GetPost(string postId);
     }
 
     public class PostService : BaseService<Posts>, IPostService
@@ -47,6 +48,23 @@ namespace WebApi.Services
             var postCatInputs = _mapper.Map<List<PostInCategories>>(postCatDtos);
             var resultAddPostCat = await _postInCategoryRepository.AddBulk(postCatInputs);
             return postId;
+        }
+        public async Task<PostsDto> GetPost(string postId)
+        {
+            get Post
+            var post = await _postRepository.Get(postId);
+            var postDto = _mapper.Map<PostsDto>(post);
+
+            // get categories
+            string sqlQuery = $"PostId = {postId}";
+            var cats = await _postInCategoryRepository.GetList(sqlQuery);
+            var catIds = new List<string>();
+            foreach(var cat in cats)
+            {
+               catIds.Add(cat.CategoryId.ToString());
+            }
+            postDto.categoryIds = catIds;
+            return postDto;
         }
     }
 }
