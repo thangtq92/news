@@ -46,7 +46,7 @@ export class EditComponent implements OnInit {
     private route: ActivatedRoute,
 
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.loadCategoryOptions();

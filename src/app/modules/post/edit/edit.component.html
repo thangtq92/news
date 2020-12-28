@@ -17,37 +17,53 @@
                         <div class="form-group row">
                             <div class="col-lg-12">
                                 <label class="form-label">Tiêu đề</label>
-                                <input class="form-control form-control-lg form-control-solid" placeholder="Title" autocomplete="off" formControlName="title" id="title" type="text" [(ngModel)]="post.title" />
+                                <input class="form-control form-control-lg form-control-solid" placeholder="Title"
+                                    autocomplete="off" formControlName="title" id="title" type="text"
+                                    [(ngModel)]="post.title" />
                             </div>
                             <div class="col-lg-12">
                                 <label class="form-label">Nội dung</label>
-                                <ckeditor [(ngModel)]="post.content" #ckeditor imageUploadUrl="http://localhost:4000/upload" debounce="500">
+                                <ckeditor [(ngModel)]="post.content" #ckeditor
+                                    imageUploadUrl="http://localhost:4000/upload" debounce="500">
                                 </ckeditor>
                             </div>
 
                             <div class="col-lg-4">
                                 <label class="form-label">Mô tả</label>
-                                <textarea matInput matAutosizeMinRows="2" matAutosizeMaxRows="5" class="form-control form-control-lg form-control-solid" placeholder="description" autocomplete="off" formControlName="description" id="description" type="text" [(ngModel)]="post.description"></textarea>
+                                <textarea matInput matAutosizeMinRows="2" matAutosizeMaxRows="5"
+                                    class="form-control form-control-lg form-control-solid" placeholder="description"
+                                    autocomplete="off" formControlName="description" id="description" type="text"
+                                    [(ngModel)]="post.description"></textarea>
                             </div>
                             <div class="col-lg-4">
                                 <label class="form-label">Source Web</label>
-                                <input class="form-control form-control-lg form-control-solid" placeholder="sourceWeb" autocomplete="off" formControlName="sourceWeb" id="sourceWeb" type="text" [(ngModel)]="post.sourceWeb" />
+                                <input class="form-control form-control-lg form-control-solid" placeholder="sourceWeb"
+                                    autocomplete="off" formControlName="sourceWeb" id="sourceWeb" type="text"
+                                    [(ngModel)]="post.sourceWeb" />
                             </div>
                             <div class="col-lg-4">
                                 <label class="form-label">Seo Alias</label>
-                                <input class="form-control form-control-lg form-control-solid" placeholder="seoAlias" autocomplete="off" formControlName="seoAlias" id="seoAlias" type="text" [(ngModel)]="post.seoAlias" />
+                                <input class="form-control form-control-lg form-control-solid" placeholder="seoAlias"
+                                    autocomplete="off" formControlName="seoAlias" id="seoAlias" type="text"
+                                    [(ngModel)]="post.seoAlias" />
                             </div>
                             <div class="col-lg-4">
                                 <label class="form-label">Seo Title</label>
-                                <input class="form-control form-control-lg form-control-solid" placeholder="seoTitle" autocomplete="off" formControlName="seoTitle" id="seoTitle" type="text" [(ngModel)]="post.seoTitle" />
+                                <input class="form-control form-control-lg form-control-solid" placeholder="seoTitle"
+                                    autocomplete="off" formControlName="seoTitle" id="seoTitle" type="text"
+                                    [(ngModel)]="post.seoTitle" />
                             </div>
                             <div class="col-lg-4">
                                 <label class="form-label">Seo Keyword</label>
-                                <input class="form-control form-control-lg form-control-solid" placeholder="seoKeyword" autocomplete="off" formControlName="seoKeyword" id="seoKeyword" type="text" [(ngModel)]="post.seoKeyword" />
+                                <input class="form-control form-control-lg form-control-solid" placeholder="seoKeyword"
+                                    autocomplete="off" formControlName="seoKeyword" id="seoKeyword" type="text"
+                                    [(ngModel)]="post.seoKeyword" />
                             </div>
                             <div class="col-lg-4">
                                 <label class="form-label">Seo Description</label>
-                                <input class="form-control form-control-lg form-control-solid" placeholder="seoDescription" autocomplete="off" formControlName="seoDescription" id="seoDescription" type="text" [(ngModel)]="post.seoDescription" />
+                                <input class="form-control form-control-lg form-control-solid"
+                                    placeholder="seoDescription" autocomplete="off" formControlName="seoDescription"
+                                    id="seoDescription" type="text" [(ngModel)]="post.seoDescription" />
                             </div>
 
                         </div>
@@ -100,13 +116,15 @@
                                 <mat-label>Chọn danh mục</mat-label>
                                 <mat-select formControlName="categoryIds" [(ngModel)]="post.categoryIds" multiple>
                                     <mat-select-trigger>
-                                        {{ post.categoryIds.length > 0 ? getCatNameFromId(post.categoryIds[0]) : "Chose Category" }}
+                                        {{ post.categoryIds.length > 0 ? getCatNameFromId(post.categoryIds[0]) : "Chose
+                                        Category" }}
                                         <span *ngIf="post.categoryIds?.length > 1" class="example-additional-selection">
-                (+{{ post.categoryIds.length - 1 }}
-                {{ post.categoryIds?.length === 2 ? "other" : "others" }})
-              </span>
+                                            (+{{ post.categoryIds.length - 1 }}
+                                            {{ post.categoryIds?.length === 2 ? "other" : "others" }})
+                                        </span>
                                     </mat-select-trigger>
-                                    <mat-option *ngFor="let cat of categoryOptions" [value]="cat.id">{{ cat.name }}</mat-option>
+                                    <mat-option *ngFor="let cat of categoryOptions" [value]="cat.id">{{ cat.name }}
+                                    </mat-option>
                                 </mat-select>
                             </mat-form-field>
                         </mat-expansion-panel>
@@ -156,12 +174,12 @@
     </div>
     <div class="card-footer">
         <button type="button" class="btn btn-light btn-elevate mr-2" routerLink="/post/index">
-      Cancel
-    </button>
+            Cancel
+        </button>
         <ng-container *ngIf="post">
             <button class="btn btn-primary btn-elevate" [disabled]="!form.valid" (click)="save()">
-        Save
-      </button>
+                Save
+            </button>
         </ng-container>
     </div>
 </div>
