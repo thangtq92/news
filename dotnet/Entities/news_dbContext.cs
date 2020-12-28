@@ -222,7 +222,7 @@ namespace WebApi.Entities
 
             modelBuilder.Entity<PostInTags>(entity =>
             {
-                entity.HasKey(e => new { e.PostId, e.TagsId });
+                entity.HasKey(e => new { e.PostId, e.TagId });
               
             });
 

@@ -2,11 +2,13 @@ import { Component, OnInit } from "@angular/core";
 
 import { PostService } from "../post.service";
 import { CategoryService } from "../../category/category.service";
+import { TagService } from "../../tag/tag.service";
 
 import { ActivatedRoute, Router } from "@angular/router";
 
 import { Post } from "../post";
 import { Category } from "../../category/category";
+import { Tag } from "../../tag/tag";
 
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 
@@ -38,10 +40,12 @@ export class EditComponent implements OnInit {
   form: FormGroup;
 
   categoryOptions: Category[];
+  tagOptions: Tag[];
 
   constructor(
     public postService: PostService,
     public categoryService: CategoryService,
+    public tagService: TagService,
 
     private route: ActivatedRoute,
 
@@ -49,7 +53,7 @@ export class EditComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.loadCategoryOptions();
+    this.loadCategoryTagOptions();
     this.id = parseInt(this.route.snapshot.params["postId"]);
     if (!this.id) {
       this.post = EMPTY_POST;
@@ -63,9 +67,12 @@ export class EditComponent implements OnInit {
     }
   }
 
-  loadCategoryOptions() {
+  loadCategoryTagOptions() {
     this.categoryService.getAll().subscribe((data: Category[]) => {
       this.categoryOptions = data;
+    });
+    this.tagService.getAll().subscribe((data: Tag[]) => {
+      this.tagOptions = data;
     });
   }
 
@@ -74,6 +81,15 @@ export class EditComponent implements OnInit {
       return this.categoryOptions.find((e) => e.id == catId).name;
     } catch (error) {
       console.log(`error in get cat name with catId: ${catId}: ${error}`);
+      return null;
+    }
+  }
+
+  getTagNameFromId(tagId) {
+    try {
+      return this.categoryOptions.find((e) => e.id == tagId).name;
+    } catch (error) {
+      console.log(`error in get tag name with tagId: ${tagId}: ${error}`);
       return null;
     }
   }
@@ -89,6 +105,7 @@ export class EditComponent implements OnInit {
       seoKeyword: new FormControl(this.post.seoKeyword),
       seoDescription: new FormControl(this.post.seoDescription),
       categoryIds: new FormControl(this.post.categoryIds),
+      tagIds: new FormControl(this.post.tagIds),
     });
   }
 

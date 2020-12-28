@@ -8,7 +8,7 @@ namespace WebApi.Entities
     public partial class PostInTags
     {
         public int PostId { get; set; }
-        public int TagsId { get; set; }
+        public int TagId { get; set; }
 
   
     }

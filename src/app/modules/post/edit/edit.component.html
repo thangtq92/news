@@ -132,7 +132,23 @@
                                   Type your name and age
                               </mat-panel-description> -->
                                 </mat-expansion-panel-header>
-                                <p>Add/Show/Edit/Delete/ tag</p>
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Chọn Thẻ</mat-label>
+                                    <mat-select formControlName="tagIds" [(ngModel)]="post.tagIds" multiple>
+                                        <mat-select-trigger>
+                                            {{ post.tagIds.length > 0 ? getCatNameFromId(post.tagIds[0]) :
+                                            "Chose
+                                            Tag" }}
+                                            <span *ngIf="post.tagIds?.length > 1"
+                                                class="example-additional-selection">
+                                                (+{{ post.tagIds.length - 1 }}
+                                                {{ post.tagIds?.length === 2 ? "other" : "others" }})
+                                            </span>
+                                        </mat-select-trigger>
+                                        <mat-option *ngFor="let tag of tagOptions" [value]="tag.id">{{ tag.name }}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
 
                             </mat-expansion-panel>
                             <mat-expansion-panel>
