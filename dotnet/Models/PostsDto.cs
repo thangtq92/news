@@ -38,7 +38,7 @@ namespace WebApi.Entities
 		public byte? Type { get; set; }
 		public virtual ICollection<Comments> Comments { get; set; }
 		public virtual ICollection<PostInTags> PostInTags { get; set; }
-		public List<string> categoryIds { get; set; }
-		public List<string> tagIds { get; set; }
+		public List<int> categoryIds { get; set; }
+		public List<int> tagIds { get; set; }
 	}
 }

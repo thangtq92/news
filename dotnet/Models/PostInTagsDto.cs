@@ -7,6 +7,7 @@ namespace WebApi.Entities
 {
     public partial class PostInTagsDto
     {
+        public int Id { get; set; }
         public int PostId { get; set; }
         public int TagId { get; set; }
         public virtual Posts Post { get; set; }

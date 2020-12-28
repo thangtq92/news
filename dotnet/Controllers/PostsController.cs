@@ -61,15 +61,16 @@ namespace WebApi.Controllers
         [HttpPut()]
         public async Task<CustomApiResponse> Put([FromBody] PostsDto entity)
         {
-            var inputEntity = _mapper.Map<Posts>(entity);
-            var result = await _postService.Update(inputEntity);
+            //var inputEntity = _mapper.Map<Posts>(entity);
+            //var result = await _postService.Update(inputEntity);
+            var result = await _postService.UpdatePost(entity);
             return new CustomApiResponse(entity.Id, result ? "Succeeded" : "Failed", !result);
         }
 
         [HttpDelete("{id}")]
-        public async Task<CustomApiResponse> Delete(string id)
+        public async Task<CustomApiResponse> DeletePost(string id)
         {
-            var result = await _postService.Delete(id);
+            var result = await _postService.DeletePost(id);
             return new CustomApiResponse(id, result ? "Succeeded" : "Failed", !result);
         }
 

@@ -136,7 +136,7 @@
                                     <mat-label>Chọn Thẻ</mat-label>
                                     <mat-select formControlName="tagIds" [(ngModel)]="post.tagIds" multiple>
                                         <mat-select-trigger>
-                                            {{ post.tagIds.length > 0 ? getCatNameFromId(post.tagIds[0]) :
+                                            {{ post.tagIds.length > 0 ? getTagNameFromId(post.tagIds[0]) :
                                             "Chose
                                             Tag" }}
                                             <span *ngIf="post.tagIds?.length > 1"

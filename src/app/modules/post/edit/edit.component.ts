@@ -87,7 +87,7 @@ export class EditComponent implements OnInit {
 
   getTagNameFromId(tagId) {
     try {
-      return this.categoryOptions.find((e) => e.id == tagId).name;
+      return this.tagOptions.find((e) => e.id == tagId).name;
     } catch (error) {
       console.log(`error in get tag name with tagId: ${tagId}: ${error}`);
       return null;
@@ -104,8 +104,8 @@ export class EditComponent implements OnInit {
       seoTitle: new FormControl(this.post.seoTitle),
       seoKeyword: new FormControl(this.post.seoKeyword),
       seoDescription: new FormControl(this.post.seoDescription),
-      categoryIds: new FormControl(this.post.categoryIds),
-      tagIds: new FormControl(this.post.tagIds),
+      categoryIds: new FormControl(this.post.categoryIds, [Validators.required]),
+      tagIds: new FormControl(this.post.tagIds, [Validators.required]),
     });
   }
 

@@ -11,6 +11,8 @@ namespace WebApi.Services
     {
         Task<string> AddPost(PostsDto postDto);
         Task<PostsDto> GetPost(string postId);
+        Task<bool> UpdatePost(PostsDto postDto);
+        Task<bool> DeletePost(string postId);
     }
 
     public class PostService : BaseService<Posts>, IPostService
@@ -36,35 +38,9 @@ namespace WebApi.Services
             // add post to get post id
             var postInput = _mapper.Map<Posts>(postDto);
             var postId = await _postRepository.Add(postInput);
+            postDto.Id = Convert.ToInt32(postId);
 
-            // add cats to postcat
-            var postCatDtos = new List<PostInCategoriesDto>();
-            var postTagDtos = new List<PostInTagsDto>();
-            // add categories
-            var catIds = postDto.categoryIds;
-            foreach (var catId in catIds)
-            {
-                postCatDtos.Add(new PostInCategoriesDto()
-                {
-                    PostId = Convert.ToInt32(postId),
-                    CategoryId = Convert.ToInt32(catId),
-                });
-            }
-            // add tags
-            var tagIds = postDto.tagIds;
-            foreach (var tagId in tagIds)
-            {
-                postTagDtos.Add(new PostInTagsDto()
-                {
-                    PostId = Convert.ToInt32(postId),
-                    TagId = Convert.ToInt32(tagId),
-                });
-            }
-            var postCatInputs = _mapper.Map<List<PostInCategories>>(postCatDtos);
-            var postTagInputs = _mapper.Map<List<PostInTags>>(postTagDtos);
-
-            var resultAddPostCat = await _postInCategoryRepository.AddBulk(postCatInputs);
-            var resultAddPosTag = await _postInTagRepository.AddBulk(postTagInputs);
+            await addTagAndCategories(postDto);
             return postId;
         }
         public async Task<PostsDto> GetPost(string postId)
@@ -76,13 +52,79 @@ namespace WebApi.Services
             // get categories
             string sqlQuery = $"PostId = {postId}";
             var cats = await _postInCategoryRepository.GetList(sqlQuery);
-            var catIds = new List<string>();
-            foreach(var cat in cats)
+            var catIds = new List<int>();
+            foreach (var cat in cats)
             {
-               catIds.Add(cat.CategoryId.ToString());
+                catIds.Add(cat.CategoryId);
             }
             postDto.categoryIds = catIds;
+            // get tags
+            var tags = await _postInTagRepository.GetList(sqlQuery);
+            var tagIds = new List<int>();
+            foreach (var tag in tags)
+            {
+                tagIds.Add(tag.TagId);
+            }
+            postDto.tagIds = tagIds;
             return postDto;
+        }
+        public async Task<bool> UpdatePost(PostsDto postDto)
+        {
+            // update post
+            var inputEntity = _mapper.Map<Posts>(postDto);
+            var result = await _postRepository.Update(inputEntity);
+
+            // delete tag and categories
+            await deleteTagAndCategories(postDto.Id.ToString());
+            // re insert tag and categories
+            await addTagAndCategories(postDto);
+            return result;
+        }
+        public async Task<bool> DeletePost(string postId)
+        {
+            var result = await _postRepository.Delete(postId);
+            await deleteTagAndCategories(postId);
+            return result;
+        }
+        async Task<string> deleteTagAndCategories(string postId)
+        {
+            string sqlDelete = $"PostId = {postId}";
+            await _postInCategoryRepository.Deletes(sqlDelete);
+            var result = await _postInTagRepository.Deletes(sqlDelete);
+            return result;
+        }
+        async Task<string> addTagAndCategories(PostsDto postDto)
+        {
+            var postId = postDto.Id;
+            // add cats to postcat
+            var postCatDtos = new List<PostInCategoriesDto>();
+            var postTagDtos = new List<PostInTagsDto>();
+            // add categories
+            var catIds = postDto.categoryIds;
+            foreach (var catId in catIds)
+            {
+                postCatDtos.Add(new PostInCategoriesDto()
+                {
+                    PostId = postId,
+                    CategoryId = catId,
+                });
+            }
+            // add tags
+            var tagIds = postDto.tagIds;
+            foreach (var tagId in tagIds)
+            {
+                postTagDtos.Add(new PostInTagsDto()
+                {
+                    PostId = postId,
+                    TagId = tagId,
+                });
+            }
+            var postCatInputs = _mapper.Map<List<PostInCategories>>(postCatDtos);
+            var postTagInputs = _mapper.Map<List<PostInTags>>(postTagDtos);
+
+            var resultAddPostCat = await _postInCategoryRepository.AddBulk(postCatInputs);
+            var resultAddPosTag = await _postInTagRepository.AddBulk(postTagInputs);
+            return resultAddPostCat;
         }
     }
 }

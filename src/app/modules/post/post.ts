@@ -8,6 +8,6 @@ export interface Post {
   seoTitle: string;
   seoKeyword: string;
   seoDescription: string;
-  categoryIds: string[];
-  tagIds: string[];
+  categoryIds: number[];
+  tagIds: number[];
 }
