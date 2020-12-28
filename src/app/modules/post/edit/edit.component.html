@@ -11,20 +11,18 @@
     </div>
     <div class="card-body" style="min-height: 404px">
         <ng-container *ngIf="post">
-            <div class="row">
-                <div class="col-lg-9">
-                    <form class="form form-label-right" [formGroup]="form">
+            <form class="form form-label-right" [formGroup]="form">
+                <div class="row">
+                    <div class="col-lg-9">
                         <div class="form-group row">
                             <div class="col-lg-12">
                                 <label class="form-label">Tiêu đề</label>
                                 <input class="form-control form-control-lg form-control-solid" placeholder="Title"
-                                    autocomplete="off" formControlName="title" id="title" type="text"
-                                    [(ngModel)]="post.title" />
+                                    autocomplete="off" formControlName="title" id="title" type="text" />
                             </div>
                             <div class="col-lg-12">
                                 <label class="form-label">Nội dung</label>
-                                <ckeditor [(ngModel)]="post.content" #ckeditor
-                                    imageUploadUrl="http://localhost:4000/upload" debounce="500">
+                                <ckeditor formControlName="content" #ckeditor imageUploadUrl="http://localhost:4000/upload" debounce="500">
                                 </ckeditor>
                             </div>
 
@@ -32,142 +30,140 @@
                                 <label class="form-label">Mô tả</label>
                                 <textarea matInput matAutosizeMinRows="2" matAutosizeMaxRows="5"
                                     class="form-control form-control-lg form-control-solid" placeholder="description"
-                                    autocomplete="off" formControlName="description" id="description" type="text"
-                                    [(ngModel)]="post.description"></textarea>
+                                    autocomplete="off" formControlName="description" id="description"
+                                    type="text"></textarea>
                             </div>
                             <div class="col-lg-4">
                                 <label class="form-label">Source Web</label>
                                 <input class="form-control form-control-lg form-control-solid" placeholder="sourceWeb"
-                                    autocomplete="off" formControlName="sourceWeb" id="sourceWeb" type="text"
-                                    [(ngModel)]="post.sourceWeb" />
+                                    autocomplete="off" formControlName="sourceWeb" id="sourceWeb" type="text" />
                             </div>
                             <div class="col-lg-4">
                                 <label class="form-label">Seo Alias</label>
                                 <input class="form-control form-control-lg form-control-solid" placeholder="seoAlias"
-                                    autocomplete="off" formControlName="seoAlias" id="seoAlias" type="text"
-                                    [(ngModel)]="post.seoAlias" />
+                                    autocomplete="off" formControlName="seoAlias" id="seoAlias" type="text" />
                             </div>
                             <div class="col-lg-4">
                                 <label class="form-label">Seo Title</label>
                                 <input class="form-control form-control-lg form-control-solid" placeholder="seoTitle"
-                                    autocomplete="off" formControlName="seoTitle" id="seoTitle" type="text"
-                                    [(ngModel)]="post.seoTitle" />
+                                    autocomplete="off" formControlName="seoTitle" id="seoTitle" type="text" />
                             </div>
                             <div class="col-lg-4">
                                 <label class="form-label">Seo Keyword</label>
                                 <input class="form-control form-control-lg form-control-solid" placeholder="seoKeyword"
-                                    autocomplete="off" formControlName="seoKeyword" id="seoKeyword" type="text"
-                                    [(ngModel)]="post.seoKeyword" />
+                                    autocomplete="off" formControlName="seoKeyword" id="seoKeyword" type="text" />
                             </div>
                             <div class="col-lg-4">
                                 <label class="form-label">Seo Description</label>
                                 <input class="form-control form-control-lg form-control-solid"
                                     placeholder="seoDescription" autocomplete="off" formControlName="seoDescription"
-                                    id="seoDescription" type="text" [(ngModel)]="post.seoDescription" />
+                                    id="seoDescription" type="text" />
                             </div>
 
                         </div>
-                    </form>
 
-                </div>
-                <div class="col-lg-3">
+                    </div>
+                    <div class="col-lg-3">
 
-                    <mat-accordion>
-                        <mat-expansion-panel>
-                            <mat-expansion-panel-header>
-                                <mat-panel-title>
-                                    Trạng thái & hiển thị
-                                </mat-panel-title>
-                                <!-- <mat-panel-description>
+                        <mat-accordion>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                        Trạng thái & hiển thị
+                                    </mat-panel-title>
+                                    <!-- <mat-panel-description>
                                     Type your name and age
                                 </mat-panel-description> -->
-                            </mat-expansion-panel-header>
-                            <p>Hiển thị: Công khai</p>
-                            <p>Ngày đăng: 22/12/2020</p>
-                            <p>Định dạng bài viết: Post|Video|Info</p>
-                            <p>Tác giả: Admin</p>
-                            <p>Lượt xem: 1000</p>
+                                </mat-expansion-panel-header>
+                                <p>Hiển thị: Công khai</p>
+                                <p>Ngày đăng: 22/12/2020</p>
+                                <p>Định dạng bài viết: Post|Video|Info</p>
+                                <p>Tác giả: Admin</p>
+                                <p>Lượt xem: 1000</p>
 
-                        </mat-expansion-panel>
+                            </mat-expansion-panel>
 
-                        <mat-expansion-panel>
-                            <mat-expansion-panel-header>
-                                <mat-panel-title>
-                                    Đường dẫn tĩnh
-                                </mat-panel-title>
-                                <!-- <mat-panel-description>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                        Đường dẫn tĩnh
+                                    </mat-panel-title>
+                                    <!-- <mat-panel-description>
                                   Type your name and age
                               </mat-panel-description> -->
-                            </mat-expansion-panel-header>
-                            <p>Đường dẫn URL: url-bai-viet</p>
-                            <p>Xem bài viết: url-bai-viet</p>
-                        </mat-expansion-panel>
+                                </mat-expansion-panel-header>
+                                <p>Đường dẫn URL: url-bai-viet</p>
+                                <p>Xem bài viết: url-bai-viet</p>
+                            </mat-expansion-panel>
 
-                        <mat-expansion-panel>
-                            <mat-expansion-panel-header>
-                                <mat-panel-title>
-                                    Chuyên mục
-                                </mat-panel-title>
-                                <!-- <mat-panel-description>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                        Chuyên mục
+                                    </mat-panel-title>
+                                    <!-- <mat-panel-description>
                                     Currently I am {{panelOpenState ? 'open' : 'closed'}}
                                 </mat-panel-description> -->
-                            </mat-expansion-panel-header>
-                            <mat-form-field appearance="fill">
-                                <mat-label>Chọn danh mục</mat-label>
-                                <mat-select formControlName="categoryIds" [(ngModel)]="post.categoryIds" multiple>
-                                    <mat-select-trigger>
-                                        {{ post.categoryIds.length > 0 ? getCatNameFromId(post.categoryIds[0]) : "Chose
-                                        Category" }}
-                                        <span *ngIf="post.categoryIds?.length > 1" class="example-additional-selection">
-                                            (+{{ post.categoryIds.length - 1 }}
-                                            {{ post.categoryIds?.length === 2 ? "other" : "others" }})
-                                        </span>
-                                    </mat-select-trigger>
-                                    <mat-option *ngFor="let cat of categoryOptions" [value]="cat.id">{{ cat.name }}
-                                    </mat-option>
-                                </mat-select>
-                            </mat-form-field>
-                        </mat-expansion-panel>
-                        <mat-expansion-panel>
-                            <mat-expansion-panel-header>
-                                <mat-panel-title>
-                                    Thẻ
-                                </mat-panel-title>
-                                <!-- <mat-panel-description>
+                                </mat-expansion-panel-header>
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Chọn danh mục</mat-label>
+                                    <mat-select formControlName="categoryIds" [(ngModel)]="post.categoryIds" multiple>
+                                        <mat-select-trigger>
+                                            {{ post.categoryIds.length > 0 ? getCatNameFromId(post.categoryIds[0]) :
+                                            "Chose
+                                            Category" }}
+                                            <span *ngIf="post.categoryIds?.length > 1"
+                                                class="example-additional-selection">
+                                                (+{{ post.categoryIds.length - 1 }}
+                                                {{ post.categoryIds?.length === 2 ? "other" : "others" }})
+                                            </span>
+                                        </mat-select-trigger>
+                                        <mat-option *ngFor="let cat of categoryOptions" [value]="cat.id">{{ cat.name }}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </mat-expansion-panel>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                        Thẻ
+                                    </mat-panel-title>
+                                    <!-- <mat-panel-description>
                                   Type your name and age
                               </mat-panel-description> -->
-                            </mat-expansion-panel-header>
-                            <p>Add/Show/Edit/Delete/ tag</p>
+                                </mat-expansion-panel-header>
+                                <p>Add/Show/Edit/Delete/ tag</p>
 
-                        </mat-expansion-panel>
-                        <mat-expansion-panel>
-                            <mat-expansion-panel-header>
-                                <mat-panel-title>
-                                    Ảnh đại diện
-                                </mat-panel-title>
-                                <!-- <mat-panel-description>
+                            </mat-expansion-panel>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                        Ảnh đại diện
+                                    </mat-panel-title>
+                                    <!-- <mat-panel-description>
                                 Type your name and age
                             </mat-panel-description> -->
-                            </mat-expansion-panel-header>
-                            <p>Add/Show/Edit/Delete Avatar</p>
-                        </mat-expansion-panel>
-                        <mat-expansion-panel>
-                            <mat-expansion-panel-header>
-                                <mat-panel-title>
-                                    Mô tả ngắn
-                                </mat-panel-title>
-                                <!-- <mat-panel-description>
+                                </mat-expansion-panel-header>
+                                <p>Add/Show/Edit/Delete Avatar</p>
+                            </mat-expansion-panel>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                        Mô tả ngắn
+                                    </mat-panel-title>
+                                    <!-- <mat-panel-description>
                               Type your name and age
                           </mat-panel-description> -->
-                            </mat-expansion-panel-header>
-                            <p>Description bài viết</p>
-                        </mat-expansion-panel>
-                    </mat-accordion>
+                                </mat-expansion-panel-header>
+                                <p>Description bài viết</p>
+                            </mat-expansion-panel>
+                        </mat-accordion>
 
 
 
+                    </div>
                 </div>
-            </div>
+            </form>
 
 
         </ng-container>
