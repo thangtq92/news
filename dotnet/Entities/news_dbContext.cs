@@ -275,8 +275,7 @@ namespace WebApi.Entities
 
                 entity.Property(e => e.Password)
                     .IsRequired()
-                    .HasMaxLength(50)
-                    .IsFixedLength(true);
+                    .HasMaxLength(50);
 
                 entity.Property(e => e.Phone).HasMaxLength(20);
 
@@ -285,8 +284,7 @@ namespace WebApi.Entities
                     .HasDefaultValueSql("(getdate())");
 
                 entity.Property(e => e.UserName)
-                    .HasMaxLength(50)
-                    .IsFixedLength(true);
+                    .HasMaxLength(50);
             });
 
             OnModelCreatingPartial(modelBuilder);

@@ -80,6 +80,10 @@ namespace WebApi
 			services.AddScoped<ITagService, TagService>();
 			services.AddScoped<ITagRepository, TagRepository>();
 
+			services.AddTransient<IImageHandler, ImageHandler>();
+			services.AddTransient<IImageWriter,
+								  ImageWriter>();
+
 			services.AddSwaggerGen(c =>
 			{
 				//set API Name
@@ -150,6 +154,7 @@ namespace WebApi
 			});
 
 			app.UseRouting();
+			app.UseStaticFiles();
 
 			// global cors policy
 			app.UseCors(x => x

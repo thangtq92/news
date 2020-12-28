@@ -6,59 +6,62 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WebApi.Entities;
 using WebApi.Services;
 
 namespace WebApi.Helpers
 {
-    public class JwtMiddleware
-    {
-        private readonly RequestDelegate _next;
-        private readonly AppSettings _appSettings;
+	public class JwtMiddleware
+	{
+		private readonly RequestDelegate _next;
+		private readonly AppSettings _appSettings;
 
-        public JwtMiddleware(RequestDelegate next, IOptions<AppSettings> appSettings)
-        {
-            _next = next;
-            _appSettings = appSettings.Value;
-        }
+		public JwtMiddleware(RequestDelegate next, IOptions<AppSettings> appSettings)
+		{
+			_next = next;
+			_appSettings = appSettings.Value;
+		}
 
-        public async Task Invoke(HttpContext context, IUserService userService)
-        {
-            var token = context.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
+		public async Task Invoke(HttpContext context, IUserService userService)
+		{
+			var token = context.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
+			var user = new Users();
+			if (token != null)
+				user = await attachUserToContext(context, userService, token);
+			if (user.Id != 0)
+				context.Items["User"] = user;
+			await _next(context);
+		}
 
-            if (token != null)
-                attachUserToContext(context, userService, token);
+		private async Task<Users> attachUserToContext(HttpContext context, IUserService userService, string token)
+		{
+			try
+			{
+				var tokenHandler = new JwtSecurityTokenHandler();
+				var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
+				tokenHandler.ValidateToken(token, new TokenValidationParameters
+				{
+					ValidateIssuerSigningKey = true,
+					IssuerSigningKey = new SymmetricSecurityKey(key),
+					ValidateIssuer = false,
+					ValidateAudience = false,
+					// set clockskew to zero so tokens expire exactly at token expiration time (instead of 5 minutes later)
+					ClockSkew = TimeSpan.Zero
+				}, out SecurityToken validatedToken);
 
-            await _next(context);
-        }
+				var jwtToken = (JwtSecurityToken)validatedToken;
+				var userId = int.Parse(jwtToken.Claims.First(x => x.Type == "id").Value);
 
-        private async void attachUserToContext(HttpContext context, IUserService userService, string token)
-        {
-            try
-            {
-                var tokenHandler = new JwtSecurityTokenHandler();
-                var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
-                tokenHandler.ValidateToken(token, new TokenValidationParameters
-                {
-                    ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(key),
-                    ValidateIssuer = false,
-                    ValidateAudience = false,
-                    // set clockskew to zero so tokens expire exactly at token expiration time (instead of 5 minutes later)
-                    ClockSkew = TimeSpan.Zero
-                }, out SecurityToken validatedToken);
+				// attach user to context on successful jwt validation
+				return await userService.GetById(userId);
 
-                var jwtToken = (JwtSecurityToken)validatedToken;
-                var userId = int.Parse(jwtToken.Claims.First(x => x.Type == "id").Value);
-
-                // attach user to context on successful jwt validation
-                var a = await userService.GetById(userId);
-                context.Items["User"] = a;
-            }
-            catch (Exception ex)
-            {
-                // do nothing if jwt validation fails
-                // user is not attached to context so request won't have access to secure routes
-            }
-        }
-    }
+			}
+			catch (Exception ex)
+			{
+				return new Users();
+				// do nothing if jwt validation fails
+				// user is not attached to context so request won't have access to secure routes
+			}
+		}
+	}
 }
