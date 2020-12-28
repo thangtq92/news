@@ -46,7 +46,7 @@ namespace WebApi.Repository
 
 	}
 
-	public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : class 
+	public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : class
 	{
 		private readonly IDbConnection cnn = null;
 
@@ -57,8 +57,17 @@ namespace WebApi.Repository
 
 		public async Task<IList<TEntity>> GetAll()
 		{
-			var result = await cnn.QueryAsync<TEntity>(typeof(TEntity).Name + "_GetAll", commandType: StoredProcedure);
-			return result.ToList();
+			try
+			{
+				var result = await cnn.QueryAsync<TEntity>(typeof(TEntity).Name + "_GetAll", commandType: StoredProcedure);
+				return result.ToList();
+
+			}
+			catch (Exception ex)
+			{
+				return new List<TEntity>();
+			}
+
 		}
 
 		public async Task<TEntity> Get(string id)
@@ -90,10 +99,18 @@ namespace WebApi.Repository
 
 		public async Task<string> AddBulk(IList<TEntity> entityList)
 		{
-			DynamicParameters parameters = new DynamicParameters();
-			parameters.Add("@XMLDOC", ExtensionXml<TEntity>.ToXml(entityList), DbType.String);
-			var result = await cnn.QueryAsync<EntityBase>(typeof(TEntity).Name + "_Inserts", param: parameters, commandType: StoredProcedure);
-			return result != null ? string.Join(',', result.Select(i => i.Id).ToString()) : string.Empty;
+			try
+			{
+				DynamicParameters parameters = new DynamicParameters();
+				parameters.Add("@XMLDOC", ExtensionXml<TEntity>.ToXml(entityList), DbType.String);
+				var result = await cnn.QueryAsync<EntityBase>(typeof(TEntity).Name + "_Inserts", param: parameters, commandType: StoredProcedure);
+				return result != null ? string.Join(',', result.Select(i => i.Id).ToString()) : string.Empty;
+			}
+			catch (Exception ex)
+			{
+				return ex.Message;
+			}
+
 		}
 
 		public async Task<bool> Update(TEntity entity)

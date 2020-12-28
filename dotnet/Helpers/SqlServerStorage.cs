@@ -23,11 +23,17 @@ namespace WebApi.Helpers.SqlServerDB
         {
             get
             {
-                if(_sqlConnection == null)
-				{
-                    _sqlConnection = new SqlConnection(_config.ConnectionString);
-                    _sqlConnection.Open();
-                }
+    //            if(_sqlConnection == null)
+				//{
+                    var _sqlConnection = new SqlConnection(_config.ConnectionString);
+                    try
+					{
+                        _sqlConnection.Open();
+                    } finally
+					{
+                        _sqlConnection.Close();
+                    }
+                //}
                 return _sqlConnection;
             }
             set { }
