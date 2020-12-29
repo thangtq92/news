@@ -22,7 +22,8 @@
                             </div>
                             <div class="col-lg-12">
                                 <label class="form-label">Nội dung</label>
-                                <ckeditor formControlName="content" #ckeditor imageUploadUrl="http://localhost:4000/upload" debounce="500">
+                                <ckeditor formControlName="content" #ckeditor
+                                    imageUploadUrl="http://localhost:4000/upload" debounce="500">
                                 </ckeditor>
                             </div>
 
@@ -132,7 +133,7 @@
                                   Type your name and age
                               </mat-panel-description> -->
                                 </mat-expansion-panel-header>
-                                <mat-form-field appearance="fill">
+                                <!-- <mat-form-field appearance="fill">
                                     <mat-label>Chọn Thẻ</mat-label>
                                     <mat-select formControlName="tagIds" [(ngModel)]="post.tagIds" multiple>
                                         <mat-select-trigger>
@@ -148,6 +149,19 @@
                                         <mat-option *ngFor="let tag of tagOptions" [value]="tag.id">{{ tag.name }}
                                         </mat-option>
                                     </mat-select>
+                                </mat-form-field> -->
+                                <mat-form-field class="example-chip-list">
+                                    <mat-label>Chọn Thẻ</mat-label>
+                                    <mat-chip-list #chipList aria-label="Tag selection">
+                                        <mat-chip *ngFor="let tag of form.get('tagNames').value"
+                                            (removed)="removeTag(tag)">
+                                            {{tag}}
+                                            <mat-icon matChipRemove>cancel</mat-icon>
+                                        </mat-chip>
+                                        <input placeholder="New tag..." [matChipInputFor]="chipList"
+                                            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                            (matChipInputTokenEnd)="addTag($event)">
+                                    </mat-chip-list>
                                 </mat-form-field>
 
                             </mat-expansion-panel>

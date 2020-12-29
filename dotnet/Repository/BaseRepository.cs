@@ -104,7 +104,7 @@ namespace WebApi.Repository
 				DynamicParameters parameters = new DynamicParameters();
 				parameters.Add("@XMLDOC", ExtensionXml<TEntity>.ToXml(entityList), DbType.String);
 				var result = await cnn.QueryAsync<EntityBase>(typeof(TEntity).Name + "_Inserts", param: parameters, commandType: StoredProcedure);
-				return result != null ? string.Join(',', result.Select(i => i.Id).ToString()) : string.Empty;
+				return result != null ? string.Join(',', result.Select(i => i.Id).ToList()) : string.Empty;
 			}
 			catch (Exception ex)
 			{

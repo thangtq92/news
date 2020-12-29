@@ -1,4 +1,6 @@
+import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { Component, OnInit } from "@angular/core";
+import { MatChipInputEvent } from '@angular/material/chips';
 
 import { PostService } from "../post.service";
 import { CategoryService } from "../../category/category.service";
@@ -23,7 +25,7 @@ const EMPTY_POST: Post = {
   seoKeyword: "",
   seoDescription: "",
   categoryIds: [],
-  tagIds: [],
+  tagNames: [],
 };
 @Component({
   selector: "app-edit",
@@ -40,7 +42,7 @@ export class EditComponent implements OnInit {
   form: FormGroup;
 
   categoryOptions: Category[];
-  tagOptions: Tag[];
+  readonly separatorKeysCodes: number[] = [ENTER, COMMA];
 
   constructor(
     public postService: PostService,
@@ -53,7 +55,7 @@ export class EditComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.loadCategoryTagOptions();
+    this.loadCategoryOptions();
     this.id = parseInt(this.route.snapshot.params["postId"]);
     if (!this.id) {
       this.post = EMPTY_POST;
@@ -67,12 +69,9 @@ export class EditComponent implements OnInit {
     }
   }
 
-  loadCategoryTagOptions() {
+  loadCategoryOptions() {
     this.categoryService.getAll().subscribe((data: Category[]) => {
       this.categoryOptions = data;
-    });
-    this.tagService.getAll().subscribe((data: Tag[]) => {
-      this.tagOptions = data;
     });
   }
 
@@ -81,15 +80,6 @@ export class EditComponent implements OnInit {
       return this.categoryOptions.find((e) => e.id == catId).name;
     } catch (error) {
       console.log(`error in get cat name with catId: ${catId}: ${error}`);
-      return null;
-    }
-  }
-
-  getTagNameFromId(tagId) {
-    try {
-      return this.tagOptions.find((e) => e.id == tagId).name;
-    } catch (error) {
-      console.log(`error in get tag name with tagId: ${tagId}: ${error}`);
       return null;
     }
   }
@@ -105,12 +95,41 @@ export class EditComponent implements OnInit {
       seoKeyword: new FormControl(this.post.seoKeyword),
       seoDescription: new FormControl(this.post.seoDescription),
       categoryIds: new FormControl(this.post.categoryIds, [Validators.required]),
-      tagIds: new FormControl(this.post.tagIds, [Validators.required]),
+      tagNames: new FormControl(this.post.tagNames, [Validators.required]),
     });
+  }
+
+  addTag(event: MatChipInputEvent): void {
+    const input = event.input;
+    const value = event.value;
+
+    // Add our fruit
+    if ((value || '').trim()) {
+      this.tagNames.value.push(value);
+      this.tagNames.updateValueAndValidity();
+    }
+
+    // Reset the input value
+    if (input) {
+      input.value = '';
+    }
+  }
+
+  removeTag(tag: string): void {
+    const index = this.tagNames.value.indexOf(tag);
+
+    if (index >= 0) {
+      this.tagNames.value.splice(index, 1);
+      this.tagNames.updateValueAndValidity();
+    }
   }
 
   get f() {
     return this.form.controls;
+  }
+
+  get tagNames() {
+    return this.form.get('tagNames');
   }
 
   save() {

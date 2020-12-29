@@ -39,6 +39,6 @@ namespace WebApi.Entities
 		public virtual ICollection<Comments> Comments { get; set; }
 		public virtual ICollection<PostInTags> PostInTags { get; set; }
 		public List<int> categoryIds { get; set; }
-		public List<int> tagIds { get; set; }
+		public List<string> tagNames { get; set; }
 	}
 }

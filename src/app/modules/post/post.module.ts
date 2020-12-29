@@ -20,8 +20,9 @@ import { CKEditorModule } from "ng2-ckeditor";
 
 import { MatSelectModule } from "@angular/material/select";
 import { MatFormFieldModule } from "@angular/material/form-field";
-import {MatExpansionModule} from "@angular/material/expansion";
-import {MatChipsModule} from '@angular/material/chips'; //Use for Tags
+import { MatExpansionModule } from "@angular/material/expansion";
+import { MatChipsModule } from '@angular/material/chips'; //Use for Tags
+import { MatIconModule } from '@angular/material/icon';
 
 
 
@@ -46,7 +47,8 @@ import {
     MatSelectModule,
     MatFormFieldModule,
     MatExpansionModule,
-    MatChipsModule
+    MatChipsModule,
+    MatIconModule
   ],
 })
-export class PostModule {}
+export class PostModule { }

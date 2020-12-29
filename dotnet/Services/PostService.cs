@@ -1,6 +1,7 @@
 using AutoMapper;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using WebApi.Entities;
 using WebApi.Repository;
@@ -19,16 +20,19 @@ namespace WebApi.Services
     {
         IMapper _mapper;
         IPostRepository _postRepository;
+        ITagRepository _tagRepository;
         IPostInCategoryRepository _postInCategoryRepository;
         IPostInTagRepository _postInTagRepository;
         public PostService(
             IPostRepository postRepository,
+            ITagRepository tagRepository,
             IPostInCategoryRepository postInCategoryRepository,
             IPostInTagRepository postInTagRepository,
             IMapper mapper
         ) : base(postRepository)
         {
             _postRepository = postRepository;
+            _tagRepository = tagRepository;
             _postInCategoryRepository = postInCategoryRepository;
             _postInTagRepository = postInTagRepository;
             _mapper = mapper;
@@ -51,21 +55,13 @@ namespace WebApi.Services
 
             // get categories
             string sqlQuery = $"PostId = {postId}";
-            var cats = await _postInCategoryRepository.GetList(sqlQuery);
-            var catIds = new List<int>();
-            foreach (var cat in cats)
-            {
-                catIds.Add(cat.CategoryId);
-            }
+            var postCats = await _postInCategoryRepository.GetList(sqlQuery);
+            var catIds = postCats.Select(pc => pc.CategoryId).ToList();
             postDto.categoryIds = catIds;
             // get tags
-            var tags = await _postInTagRepository.GetList(sqlQuery);
-            var tagIds = new List<int>();
-            foreach (var tag in tags)
-            {
-                tagIds.Add(tag.TagId);
-            }
-            postDto.tagIds = tagIds;
+            var tags = await _tagRepository.GetByPostId(Convert.ToInt32(postId));
+            var tagNames = tags.Select(t => t.Name).ToList();
+            postDto.tagNames = tagNames;
             return postDto;
         }
         public async Task<bool> UpdatePost(PostsDto postDto)
@@ -101,30 +97,70 @@ namespace WebApi.Services
             var postTagDtos = new List<PostInTagsDto>();
             // add categories
             var catIds = postDto.categoryIds;
-            foreach (var catId in catIds)
+            var resultAddPostCat = "Fail";
+            if(catIds.Count > 0)
             {
-                postCatDtos.Add(new PostInCategoriesDto()
+                foreach (var catId in catIds)
                 {
-                    PostId = postId,
-                    CategoryId = catId,
-                });
+                    postCatDtos.Add(new PostInCategoriesDto()
+                    {
+                        PostId = postId,
+                        CategoryId = catId,
+                    });
+                }
+                var postCatInputs = _mapper.Map<List<PostInCategories>>(postCatDtos);
+                resultAddPostCat = await _postInCategoryRepository.AddBulk(postCatInputs);
             }
             // add tags
-            var tagIds = postDto.tagIds;
-            foreach (var tagId in tagIds)
+            var tagIds = await getTagIdFromNames(postDto);
+            var resultAddPostTag = "Fail";
+            if(tagIds.Count > 0)
             {
-                postTagDtos.Add(new PostInTagsDto()
+                foreach (var tagId in tagIds)
                 {
-                    PostId = postId,
-                    TagId = tagId,
-                });
+                    postTagDtos.Add(new PostInTagsDto()
+                    {
+                        PostId = postId,
+                        TagId = tagId,
+                    });
+                }
+                var postTagInputs = _mapper.Map<List<PostInTags>>(postTagDtos);
+                resultAddPostTag = await _postInTagRepository.AddBulk(postTagInputs);
             }
-            var postCatInputs = _mapper.Map<List<PostInCategories>>(postCatDtos);
-            var postTagInputs = _mapper.Map<List<PostInTags>>(postTagDtos);
-
-            var resultAddPostCat = await _postInCategoryRepository.AddBulk(postCatInputs);
-            var resultAddPosTag = await _postInTagRepository.AddBulk(postTagInputs);
             return resultAddPostCat;
+        }
+        async Task<List<int>> getTagIdFromNames(PostsDto postDto)
+        {
+            var tagNames = postDto.tagNames;
+
+            // get tag already
+            string sqlGetTag = $"Name IN ('{string.Join("','", tagNames)}')";
+            var alreadyTags = await _tagRepository.GetList(sqlGetTag);
+            var alreadyTagNames = alreadyTags.Select(t => t.Name).ToList();
+
+            // get new tag
+            var newTagsNames = tagNames.Except(alreadyTagNames).ToList();
+
+            var newTagIds = new List<int>();
+            if (newTagsNames.Count > 0)
+            {
+                var tagDtos = new List<TagsDto>();
+                foreach(var nt in newTagsNames)
+                {
+                    tagDtos.Add(new TagsDto()
+                    {
+                        Name = nt
+                    });
+                }
+                var inputTags = _mapper.Map<List<Tags>>(tagDtos);
+                var tagAdds = await _tagRepository.AddBulk(inputTags);
+                newTagIds = tagAdds.Split(",").Select(t => Convert.ToInt32(t)).ToList();
+            }
+
+            // join 2 list id tag 
+            var alreadyTagIds = alreadyTags.Select(t => t.Id).ToList();
+            var result = alreadyTagIds.Concat(newTagIds).ToList();
+            return result;
         }
     }
 }

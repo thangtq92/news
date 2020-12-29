@@ -9,5 +9,5 @@ export interface Post {
   seoKeyword: string;
   seoDescription: string;
   categoryIds: number[];
-  tagIds: number[];
+  tagNames: string[];
 }

@@ -14,6 +14,7 @@ namespace WebApi.Repository
 {
     public interface ITagRepository : IBaseRepository<Tags>
     {
+        Task<List<Tags>> GetByPostId(int postId);
     }
 
     public class TagRepository : BaseRepository<Tags>, ITagRepository
@@ -24,5 +25,12 @@ namespace WebApi.Repository
         {
             cnn = clientDB.iDbConnection;
         }
+        public async Task<List<Tags>> GetByPostId(int postId)
+		{
+			DynamicParameters parameters = new DynamicParameters();
+			parameters.Add("@PostId", postId, DbType.Int32);
+			var result = await cnn.QueryAsync<Tags>("Tags_GetByPostId", parameters, commandType: StoredProcedure);
+			return result.ToList();
+		}
     }
 }
